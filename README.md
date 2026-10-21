@@ -4,3 +4,4 @@ test 1
 test 2
 mert test
 ak testss
+freddy cursor test vs

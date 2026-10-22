@@ -1,0 +1,8 @@
+# Lokale programmer og objektfiler
+/madplan
+/madplan.exe
+*.o
+.DS_Store
+
+# Senere genereret resultat (den håndskrevne skitse deles fortsat)
+/html/resultat-genereret.html

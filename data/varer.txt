@@ -1,0 +1,16 @@
+FASTE TESTDATA - opdigtede priser, ingen butik eller API.
+Kun et arbejdsark. C-programmet læser ikke denne fil endnu.
+
+Vare       Behov    Hjemme   Pakke    Pakkepris
+Ris        150 g    100 g    1000 g   1800 øre
+Æg         2 stk.   1 stk.   6 stk.   1800 øre
+Broccoli   200 g    0 g      500 g    1500 øre
+Budget: 6000 øre (60 kr.)
+
+Facit til jeres senere beregning:
+Én pakke af hver: 5100 øre i alt. Restbudget: 900 øre.
+Hvis alt allerede er hjemme: 0 øre i indkøb.
+Budget på 5000 øre med det viste lager: overskridelse på 100 øre.
+
+HASIBULLAH: Hold arket og HTML-eksemplerne ens.
+Senere: notér kilde, produkt-ID, pakkestørrelse og prisens observationsdato.

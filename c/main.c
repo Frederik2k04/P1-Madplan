@@ -69,7 +69,7 @@ int main(void)
             need_rice, storage_rice, req);
     }
 
-    if(req == 0) {
+    if(req_egg == 0) {
         printf("egg: need %d stk, home %d stk. you have enough.\n",
            need_egg, storage_egg);
     } else {
@@ -94,22 +94,27 @@ int main(void)
 
     }
 
-    (price_egg < 0) {
+   if (price_egg < 0) {
         printf("price is not calculated yet. Se TODO i c/pris.c.\n");
     } else {
-        printf("buy Egg: %d,%02d kr.\n", price_egg / 100, price % 100);
+        printf("buy Egg: %d,%02d kr.\n", price_egg / 100, price_egg % 100);
     }
 
-    (price_broccoli < 0) {
+    if (price_broccoli < 0) {
         printf("price is not calculated yet. Se TODO i c/pris.c.\n");
     } else {
-        printf("buy Broccoli: %d,%02d kr.\n", price_broccoli / 100, price % 100);
+        printf("buy Broccoli: %d,%02d kr.\n", price_broccoli / 100, price_broccoli % 100);
     }
+
+    if (price < 0 || price_egg || price_broccoli < 0) {
+
+        printf("Error: a price is missing. Total cannot be calculated");
+        return 1;
+    }
+
+    int (total <= budget_oere)
 
     /* AK - lav én opgave ad gangen:
-       
-       
-       TODO 3: Kald pris_for_vare for hver vare med testtallene fra data/varer.txt.
        TODO 4: Vis kun total og restbudget, hvis alle priser er gyldige.
                Vis også, hvis budgettet overskrides.
        TODO 5 (senere): Skriv resultatet til HTML. Se README. */

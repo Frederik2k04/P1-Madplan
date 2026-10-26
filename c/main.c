@@ -55,6 +55,8 @@ int main(void)
 
 
     int price = price_for_item(need_rice, storage_rice, 1000, 1800);
+    int price_egg = price_for_item(need_egg, storage_egg, 6, 1800);
+    int price_broccoli = price_for_item(need_broccoli, storage_broccoli, 500, 1500);
 
     printf("Madplan - foundation with clear testdata\n");
     printf("Budget: %d kr.\n", budget_oere / 100);
@@ -88,7 +90,20 @@ int main(void)
     if (price < 0) {
         printf("price is not calculated yet. Se TODO i c/pris.c.\n");
     } else {
-        printf("buy ris: %d,%02d kr.\n", price / 100, price % 100);
+        printf("buy rice: %d,%02d kr.\n", price / 100, price % 100);
+
+    }
+
+    (price_egg < 0) {
+        printf("price is not calculated yet. Se TODO i c/pris.c.\n");
+    } else {
+        printf("buy Egg: %d,%02d kr.\n", price_egg / 100, price % 100);
+    }
+
+    (price_broccoli < 0) {
+        printf("price is not calculated yet. Se TODO i c/pris.c.\n");
+    } else {
+        printf("buy Broccoli: %d,%02d kr.\n", price_broccoli / 100, price % 100);
     }
 
     /* AK - lav én opgave ad gangen:

@@ -39,6 +39,8 @@
 #include <time.h>
 #include <curl/curl.h>
 #include <sqlite3.h>
+#include "main.c"
+#include "pris.c"
 
 /* ----------------------------------------------------------------------- */
 /* Growable byte buffer                                                     */

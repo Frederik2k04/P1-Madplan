@@ -3,6 +3,39 @@
 En lille foundation i almindelig HTML og C. I skal selv lave hovedfunktionerne.
 Start med at åbne siderne og køre C-programmet. Lav derefter én TODO ad gangen.
 
+## Projektets mål og faste prisrækkefølge — 23. oktober 2026
+
+Brugeren søger fx burger, vælger en konkret opskrift og antal personer og får
+et indkøbsestimat for **de tre nærmeste konkrete supermarkeder**, samt prisen
+for den tilsvarende varekurv leveret fra **Wolt Market** til brugerens adresse.
+Alle filialer, som kan findes, skal registreres på tværs af Netto, føtex,
+REMA 1000, 365discount, SuperBrugsen, Kvickly, MENY, SPAR og Lidl.
+
+For hver nødvendig ingrediens/vare bruges denne rækkefølge:
+
+1. **Live pris fra den konkrete butik.**
+2. **Senest kendte pris fra den konkrete butik.**
+3. **Kendt pris fra samme supermarkedskæde**, tydeligt vist som estimat.
+4. **Ukendt pris**, når de øvrige muligheder ikke giver en brugbar pris.
+
+En butik må godt have en blanding af prisgrundlag. En manglende lokalpris skal
+føre til næste prioritet; den må ikke udelukke hele butikken eller kæden.
+Ukendt er aldrig 0 kr. Vis kendt delsum og antal ukendte varer, når en fuld total
+ikke kan beregnes. Lagerstatus vises særskilt. Beregn indkøb i hele pakker og
+penge i hele øre, efter at brugerens hjemmelager er trukket fra.
+
+Alle senest kendte produktpriser samles i **én SQLite-fil: `priser.sqlite`**.
+Hver pris beholder kæde, konkret butik eller kædeomfang, salgskanal, vare-id,
+pakkestørrelse, betingelser og tidspunkt. C skal læse denne fil og udføre
+prioriteringen og beregningerne; HTML viser dem. Gruppen bygger selv funktionerne.
+
+Wolt-priser holdes adskilt fra fysiske butikspriser. En præcis leveret total
+kræver aktuelle priser og gebyrer for netop adressen, varekurven og eventuelt
+Wolt+-medlemskab. En ukendt leveringspris må ikke sættes til 0 kr.
+
+Den detaljerede implementeringsplan og et datasnapshot ligger i Codex-chattens
+`outputs/madplan-plan/`. Der er ikke indsat færdig appkode i denne foundation.
+
 ## 1. Åbn HTML
 Åbn `html/index.html` ved at dobbeltklikke på filen. Brug links til alle fire sider.
 Ingen installation, server eller internetforbindelse er nødvendig for HTML.
@@ -64,14 +97,15 @@ fra en anden computer. Aftal, hvem der retter README, så I ikke retter samtidig
 1. Freddy laver prisberegningen for én vare. Betal for **hele pakker**.
 2. AK læser budget og hjemmelager. Afvis ugyldigt input, fx tekst og negative tal.
 3. AK og Freddy tilføjer æg og broccoli, lægger priser sammen og viser restbudget.
-   Vis ingen samlet pris, hvis en vare giver fejl. Penge regnes i hele øre.
+   Ved ukendt pris: vis kendt delsum og antal ukendte varer. Penge regnes i hele øre.
 4. AK lader C skrive `html/resultat-genereret.html` med `fopen`, `fprintf` og `fclose`.
    Kontrollér filfejl. Brug strukturen fra `html/resultat.html` som eksempel.
    Mert tilføjer et link, når filen findes. Genindlæs browseren efter hver kørsel.
-5. Til sidst undersøger I API'er: én opskrift, én kæde og manuelt kontrollerede varevalg.
+5. Tilslut prisdatabasen og derefter én datakilde ad gangen. Start med én opskrift
+   og tre konkrete butikker; udvid derefter til alle ni kæder med prisrækkefølgen ovenfor.
 
-Ingen API-kode eller biblioteker er nødvendige nu. TheMealDB og Madpris er forslag
-fra den tidligere plan; adgang og data skal kontrolleres, før I bygger det ind.
+Den første øvelse kræver ingen API-kode eller biblioteker. SQLite og datakilderne
+tilsluttes senere. TheMealDB og Madpris var tidligere forslag og er ikke valgte integrationer.
 Prisoplysninger fortæller ikke sikkert, hvad der er på butikkens hylder.
 I skal selv forbinde opskriftens ingredienser med butikkens varer og pakkestørrelser.
 

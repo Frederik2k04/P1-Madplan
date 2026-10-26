@@ -1,14 +1,14 @@
-#include "funktioner.h"
+#include "functions.h"
 
 /* Færdigt eksempel: en funktion tager tal ind og giver ét tal tilbage.
    Eksempel: behov 150 g og lager 100 g giver 50 g i mangel. */
-int manglende_maengde(int behov, int lager)
+int missing_amount(int need, int stock)
 {
-    int mangel = behov - lager;
-    if (mangel < 0) {
+    int missing = need - stock;
+    if (missing < 0) {
         return 0;
     }
-    return mangel;
+    return missing;
 }
 
 /* FREDDY: Denne funktion er jeres opgave.
@@ -20,24 +20,24 @@ int manglende_maengde(int behov, int lager)
    TODO 5: Returnér antal pakker gange pris_oere.
    Facit: (150, 100, 1000, 1800) skal give 1800 øre.
    Prøv også mangel på 1001 g: det kræver to pakker på 1000 g. */
-int price_for_item(int behov, int lager, int pakke, int pris_oere)
+int price_for_item(int need, int stock, int item, int price_cent)
 {
-   int mangel = manglende_maengde(behov, lager);
+   int missing = missing_amount(need, stock);
 
-   if (mangel == 0){
+   if (missing == 0){
     return 0;
    }
 
-   if (pakke <= 0 || pris_oere <= 0) {
+   if (item <= 0 || price_cent <= 0) {
       return -1;
    }
 
-   int antal = 0;
-   int købt = 0;
-   while (købt < mangel) {
-    købt = købt + pakke;
-    antal = antal + 1;
+   int amount = 0;
+   int bought = 0;
+   while (bought < missing) {
+    bought = bought + item;
+    amount = amount + 1;
    }
 
-    return antal * pris_oere;
+    return amount * price_cent;
 }

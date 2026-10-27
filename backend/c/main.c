@@ -58,7 +58,7 @@
     int price_egg = price_for_item(need_egg, stock_egg, 6, 1800);
     int price_broccoli = price_for_item(need_broccoli, stock_broccoli, 500, 1500);
 
-        printf("foodplan - foundation with clear testdata\n");
+        printf("\033[1mfoodplan - foundation with clear testdata\033[0m\n");
         printf("Budget: %d kr.\n", budget_cent / 100);
     
     if(req == 0) {

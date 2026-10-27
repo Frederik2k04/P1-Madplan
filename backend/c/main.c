@@ -5,7 +5,7 @@
 /* Programmets start.
    Første version bruger faste testtal. Ingen data hentes fra nettet. */
 
-int main(void)
+    int main(void)
 {
     int budget_kr;
     printf("Budget in whole kroner:");
@@ -22,29 +22,29 @@ int main(void)
     int need_broccoli = 200;
 
     int stock_rice;
-    printf("rice home (gram): ");
-    if (scanf("%d", &stock_rice) !=1 ||
+        printf("rice home (gram): ");
+        if (scanf("%d", &stock_rice) !=1 ||
      stock_rice < 0 || stock_rice > 100000) {
 
-    printf("Write a whole number from 0 to 10.000.\n");
+        printf("Write a whole number from 0 to 10.000.\n");
             return 1;
      }
 
       int stock_egg;
-    printf("egg home (stk): ");
-    if (scanf("%d", &stock_egg) !=1 ||
+        printf("egg home (stk): ");
+        if (scanf("%d", &stock_egg) !=1 ||
      stock_egg < 0 || stock_egg > 100000) {
 
-    printf("Write a whole number from 0 to 10.000.\n");
+        printf("Write a whole number from 0 to 10.000.\n");
             return 1;
      }
 
       int stock_broccoli;
-    printf("broccoli home (gram): ");
+        printf("broccoli home (gram): ");
     if (scanf("%d", &stock_broccoli) !=1 ||
      stock_broccoli < 0 || stock_broccoli > 100000) {
 
-    printf("skriv et helt tal fra 0 til 10.0000.\n");
+        printf("skriv et helt tal fra 0 til 10.0000.\n");
             return 1;
      }
 
@@ -58,8 +58,8 @@ int main(void)
     int price_egg = price_for_item(need_egg, stock_egg, 6, 1800);
     int price_broccoli = price_for_item(need_broccoli, stock_broccoli, 500, 1500);
 
-    printf("foodplan - foundation with clear testdata\n");
-    printf("Budget: %d kr.\n", budget_cent / 100);
+        printf("foodplan - foundation with clear testdata\n");
+        printf("Budget: %d kr.\n", budget_cent / 100);
     
     if(req == 0) {
         printf("Rice: need %d g, home %d g. You have enough.\n",
@@ -106,13 +106,27 @@ int main(void)
         printf("buy Broccoli: %d,%02d kr.\n", price_broccoli / 100, price_broccoli % 100);
     }
 
-    if (price < 0 || price_egg || price_broccoli < 0) {
+    if (price < 0 || price_egg < 0 || price_broccoli < 0) {
 
-        printf("Error: a price is missing. Total cannot be calculated");
+        printf("Error: a price is missing. Total cannot be calculated\n");
         return 1;
     }
 
-    int (total <= budget_oere)
+    int total = price + price_egg + price_broccoli;
+        printf("Total: %d, %02d kr.\n", total / 100, total % 100);
+
+    if (total <= budget_cent) {
+    int left = budget_cent - total;
+        printf("Left of budget: %d, %02d kr.\n", left / 100, left % 100);
+    }
+
+    else {
+    int over = total - budget_cent;
+    printf("Over budget: %d, %02d kr.\n", over / 100, over % 100);
+
+    }
+
+
 
     /* AK - lav én opgave ad gangen:
        TODO 4: Vis kun total og restbudget, hvis alle priser er gyldige.

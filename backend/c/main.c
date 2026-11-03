@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "functions.h"
-#include "price.c"
+
 
 /* Programmets start.
    Første version bruger faste testtal. Ingen data hentes fra nettet. */

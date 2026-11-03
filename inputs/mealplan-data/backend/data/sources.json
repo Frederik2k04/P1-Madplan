@@ -1,0 +1,436 @@
+{
+  "address_snapshot": "2026-03-27",
+  "address_rows": 3933406,
+  "supermarket_policy": {
+    "schema": "supermarket-policy-research.v1",
+    "checked_date": "2026-10-31",
+    "stores_before": 3364,
+    "counts": {
+      "approved": 2469,
+      "pending": 737,
+      "excluded": 158
+    },
+    "approved_chains": [
+      {
+        "chain_code": "365discount",
+        "name": "365discount",
+        "allowed_format": "discount_supermarket",
+        "allowed_subformats": [
+          "discount_supermarket"
+        ],
+        "excluded_subformats": [
+          "pickup-only",
+          "online-only",
+          "specialty department"
+        ],
+        "format_source_url": "https://coop.dk/butikker/",
+        "checked_date": "2026-10-31",
+        "normalised_aliases": [
+          "365discount"
+        ],
+        "before": 320,
+        "approved": 320
+      },
+      {
+        "chain_code": "abclavpris",
+        "name": "ABC Lavpris",
+        "allowed_format": "discount_supermarket",
+        "allowed_subformats": [
+          "discount_supermarket"
+        ],
+        "excluded_subformats": [
+          "pickup-only",
+          "online-only",
+          "specialty department"
+        ],
+        "format_source_url": "https://www.abc-lavpris.dk/",
+        "checked_date": "2026-10-31",
+        "normalised_aliases": [
+          "abclavpris"
+        ],
+        "before": 16,
+        "approved": 16
+      },
+      {
+        "chain_code": "alma",
+        "name": "alma",
+        "allowed_format": "supermarket",
+        "allowed_subformats": [
+          "supermarket"
+        ],
+        "excluded_subformats": [
+          "pickup-only",
+          "online-only",
+          "specialty department"
+        ],
+        "format_source_url": "https://www.almamad.dk/varer",
+        "checked_date": "2026-10-31",
+        "normalised_aliases": [
+          "alma"
+        ],
+        "before": 3,
+        "approved": 3
+      },
+      {
+        "chain_code": "bilka",
+        "name": "Bilka",
+        "allowed_format": "hypermarket",
+        "allowed_subformats": [
+          "hypermarket"
+        ],
+        "excluded_subformats": [
+          "pickup-only",
+          "online-only",
+          "specialty department"
+        ],
+        "format_source_url": "https://sallinggroup.com/en/stores",
+        "checked_date": "2026-10-31",
+        "normalised_aliases": [
+          "bilka"
+        ],
+        "before": 19,
+        "approved": 19
+      },
+      {
+        "chain_code": "brugsen",
+        "name": "Brugsen",
+        "allowed_format": "supermarket",
+        "allowed_subformats": [
+          "supermarket"
+        ],
+        "excluded_subformats": [
+          "pickup-only",
+          "online-only",
+          "specialty department"
+        ],
+        "format_source_url": "https://coop.dk/butikker/",
+        "checked_date": "2026-10-31",
+        "normalised_aliases": [
+          "brugsen",
+          "daglibrugsen"
+        ],
+        "before": 263,
+        "approved": 263
+      },
+      {
+        "chain_code": "foetex",
+        "name": "føtex",
+        "allowed_format": "supermarket",
+        "allowed_subformats": [
+          "standard supermarket",
+          "food supermarket"
+        ],
+        "excluded_subformats": [
+          "City convenience",
+          "Go!",
+          "Outlet",
+          "pickup-only",
+          "employee-only"
+        ],
+        "format_source_url": "https://sallinggroup.com/en/stores",
+        "checked_date": "2026-10-31",
+        "normalised_aliases": [
+          "foetex",
+          "fotex"
+        ],
+        "before": 120,
+        "approved": 101
+      },
+      {
+        "chain_code": "kvickly",
+        "name": "Kvickly",
+        "allowed_format": "supermarket",
+        "allowed_subformats": [
+          "supermarket"
+        ],
+        "excluded_subformats": [
+          "pickup-only",
+          "online-only",
+          "specialty department"
+        ],
+        "format_source_url": "https://coop.dk/butikker/",
+        "checked_date": "2026-10-31",
+        "normalised_aliases": [
+          "kvickly"
+        ],
+        "before": 61,
+        "approved": 61
+      },
+      {
+        "chain_code": "lidl",
+        "name": "Lidl",
+        "allowed_format": "discount_supermarket",
+        "allowed_subformats": [
+          "discount_supermarket"
+        ],
+        "excluded_subformats": [
+          "pickup-only",
+          "online-only",
+          "specialty department"
+        ],
+        "format_source_url": "https://om.lidl.dk/pdf/show/86608",
+        "checked_date": "2026-10-31",
+        "normalised_aliases": [
+          "lidl"
+        ],
+        "before": 170,
+        "approved": 170
+      },
+      {
+        "chain_code": "loevbjerg",
+        "name": "Løvbjerg",
+        "allowed_format": "discount_supermarket",
+        "allowed_subformats": [
+          "discount_supermarket"
+        ],
+        "excluded_subformats": [
+          "pickup-only",
+          "online-only",
+          "specialty department"
+        ],
+        "format_source_url": "https://www.lovbjerg.dk/om-loevbjerg",
+        "checked_date": "2026-10-31",
+        "normalised_aliases": [
+          "loevbjerg",
+          "lovbjerg"
+        ],
+        "before": 18,
+        "approved": 18
+      },
+      {
+        "chain_code": "meny",
+        "name": "MENY",
+        "allowed_format": "supermarket",
+        "allowed_subformats": [
+          "supermarket"
+        ],
+        "excluded_subformats": [
+          "pickup-only",
+          "online-only",
+          "specialty department"
+        ],
+        "format_source_url": "https://www.dagrofa.dk/kaeder/meny/",
+        "checked_date": "2026-10-31",
+        "normalised_aliases": [
+          "meny"
+        ],
+        "before": 116,
+        "approved": 116
+      },
+      {
+        "chain_code": "netto",
+        "name": "Netto",
+        "allowed_format": "discount_supermarket",
+        "allowed_subformats": [
+          "discount_supermarket"
+        ],
+        "excluded_subformats": [
+          "pickup-only",
+          "online-only",
+          "specialty department"
+        ],
+        "format_source_url": "https://sallinggroup.com/en/stores",
+        "checked_date": "2026-10-31",
+        "normalised_aliases": [
+          "netto"
+        ],
+        "before": 580,
+        "approved": 580
+      },
+      {
+        "chain_code": "rema1000",
+        "name": "REMA 1000",
+        "allowed_format": "discount_supermarket",
+        "allowed_subformats": [
+          "discount_supermarket"
+        ],
+        "excluded_subformats": [
+          "pickup-only",
+          "online-only",
+          "specialty department"
+        ],
+        "format_source_url": "https://rema1000.dk/sortiment",
+        "checked_date": "2026-10-31",
+        "normalised_aliases": [
+          "rema1000"
+        ],
+        "before": 441,
+        "approved": 441
+      },
+      {
+        "chain_code": "sallingsuper",
+        "name": "Salling Super",
+        "allowed_format": "supermarket",
+        "allowed_subformats": [
+          "supermarket"
+        ],
+        "excluded_subformats": [
+          "pickup-only",
+          "online-only",
+          "specialty department"
+        ],
+        "format_source_url": "https://salling.dk/oplev-salling/mad-og-drikke/salling-super/",
+        "checked_date": "2026-10-31",
+        "normalised_aliases": [
+          "sallingsuper"
+        ],
+        "before": 2,
+        "approved": 2
+      },
+      {
+        "chain_code": "spar",
+        "name": "SPAR",
+        "allowed_format": "supermarket",
+        "allowed_subformats": [
+          "supermarket"
+        ],
+        "excluded_subformats": [
+          "pickup-only",
+          "online-only",
+          "specialty department"
+        ],
+        "format_source_url": "https://www.dagrofa.dk/kaeder/spar/",
+        "checked_date": "2026-10-31",
+        "normalised_aliases": [
+          "spar"
+        ],
+        "before": 140,
+        "approved": 140
+      },
+      {
+        "chain_code": "superbrugsen",
+        "name": "SuperBrugsen",
+        "allowed_format": "supermarket",
+        "allowed_subformats": [
+          "supermarket"
+        ],
+        "excluded_subformats": [
+          "pickup-only",
+          "online-only",
+          "specialty department"
+        ],
+        "format_source_url": "https://coop.dk/butikker/",
+        "checked_date": "2026-10-31",
+        "normalised_aliases": [
+          "superbrugsen"
+        ],
+        "before": 219,
+        "approved": 219
+      }
+    ],
+    "foetex_city_convenience_store_ids": [
+      69,
+      75,
+      76,
+      82,
+      87,
+      91,
+      112,
+      155,
+      157,
+      230,
+      250,
+      261,
+      294,
+      323,
+      755,
+      813,
+      1524
+    ],
+    "other_excluded_foetex_ids": {
+      "510": [
+        "outlet",
+        "Outlet format has not been established as a supermarket; excluded until a specific food-supermarket format is documented."
+      ],
+      "2610": [
+        "convenience",
+        "Separate small cashierless Go! format; excluded by this conservative supermarket policy."
+      ]
+    },
+    "city_location_exceptions": {
+      "509": "https://www.foetexudafhuset.dk/shops",
+      "2238": "https://www.foetexudafhuset.dk/shops"
+    },
+    "sources": [
+      {
+        "url": "https://www.dagrofa.dk/kaeder/spar/",
+        "supports": "SPAR is explicitly a supermarket chain serving full weekly grocery shopping."
+      },
+      {
+        "url": "https://www.dagrofa.dk/kaeder/min-koebmand/",
+        "supports": "Min Købmand is described as a local grocery chain. Its broad chain membership is not a per-branch format classification."
+      },
+      {
+        "url": "https://www.dagrofa.dk/kaeder/",
+        "supports": "Let-Køb explicitly neighbourhood-store format; separates MENY/SPAR from local-grocery formats."
+      },
+      {
+        "url": "https://kfst.dk/media/mvrjmqq3/20240112-godkendelse-forenklet-dagrofas-overtagelse-af-syv-detailbutikker-fra-rema-1000.pdf",
+        "supports": "Official competition authority footnote explicitly identifies LetKøb as convenience."
+      },
+      {
+        "url": "https://sallinggroup.com/job/ledige-stillinger/1d61348f-a861-4f1d-8e6e-3f8873369c41",
+        "supports": "Specific føtex CITY Gentofte branch at Gentoftegade 74; separate CITY team format."
+      },
+      {
+        "url": "https://dk.linkedin.com/posts/morten-m%C3%B8berg-6018177_f%C3%B8tex-city-nyt-navn-til-convenience-butikkerne-activity-7275544690022625281-g1EY",
+        "supports": "First-person statement by føtex chain director: City renaming of 13 convenience stores, 200–300 m2, distinct from Food. Primary personal professional statement, not a chain-hosted press release."
+      },
+      {
+        "url": "https://sallinggroup.com/job/ledige-stillinger/44edd067-63ee-4e6e-87c4-fcded41684d1",
+        "supports": "Official job text explicitly separates 90+ department-store supermarkets from 11 food-convenience stores."
+      },
+      {
+        "url": "https://www.sallinggroup.com/nyheder/salling-group-naar-ud-til-endnu-flere-kunder-med-godkendelse-af-coop-aftale/14325894",
+        "supports": "Official conversion table identifies Benediktsgade 46 Odense as føtex City; distinct Food and ordinary formats."
+      },
+      {
+        "url": "https://www.foetex.dk/foetex-go/",
+        "supports": "Separate cashierless 24-hour Go! store, 1500 selected groceries; conservative policy excludes this limited small-store format."
+      },
+      {
+        "url": "https://www.bilkatogo.dk/inspiration/om-bilka-togo/pick-up/",
+        "supports": "Pickup containers and drive-in services are not separate walk-in supermarkets."
+      },
+      {
+        "url": "https://salling.dk/oplev-salling/mad-og-drikke/salling-super/",
+        "supports": "Salling Super explicitly identified as supermarket with grocery, produce, meat, fish, cheese and other departments. Approve entire supermarket, not individual counters."
+      },
+      {
+        "url": "https://www.almamad.dk/varer",
+        "supports": "alma has general grocery categories including dairy, produce, legumes/pasta, flour/grains, canned food and meat/fish; supermarket-format assessment is an inference from full assortment, not only name."
+      },
+      {
+        "url": "https://www.almamad.dk/vores-butikker",
+        "supports": "Three open branches in current dataset; explicitly future Amagerbrogade Nov5, Birkerød Nov26 and Carlsberg 2027 excluded until open."
+      }
+    ],
+    "limitations": [
+      "This is a classification audit of the existing nationwide snapshot, not a claim of a fresh exhaustive branch census.",
+      "National chains may have future openings or closures; preserve original per-source dates and refresh using official branch IDs.",
+      "Approved-chain membership is necessary but not sufficient: future unknown subformats must remain pending until their format is established.",
+      "Min Købmand could contain supermarket-like branches; they are withheld because this strict list does not have reliable per-branch supermarket-format evidence.",
+      "The distinction between a premium full grocery supermarket and specialty food retail is made from documented full assortment, not price level or marketing words alone."
+    ],
+    "withheld_total": 895,
+    "geographic_summary": {
+      "approved_store_postal_codes": 543,
+      "before_store_postal_codes": 627,
+      "approved_store_cities": 561,
+      "latitude_range": [
+        54.57572,
+        57.729618
+      ],
+      "longitude_range": [
+        8.116412,
+        15.141475
+      ],
+      "invalid_coordinates": 0,
+      "geographic_clipping_applied": false
+    },
+    "historical_input_name": "previous step 3/data/price.sqlite",
+    "historical_input_role": "Inspected previous product, preserved in the project archive; this is not a runtime path."
+  },
+  "language": "English display with Danish and English search aliases",
+  "candidate_input": "store_candidates.sqlite includes excluded and pending candidates for import tests, not customer results"
+}

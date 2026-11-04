@@ -2,3 +2,9 @@ madplan
 html/resultat.html
 data/svar.json
 data/opskrift.json
+
+# New local build products. Existing tracked files are left unchanged.
+.DS_Store
+/backend/c/output/
+*.o
+*.dSYM/

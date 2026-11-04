@@ -11,7 +11,7 @@ int missing_amount(int need, int stock)
     return missing;
 }
 
-/* Price in cents (øre) for one item.
+/* Price in cents (ore) for one item.
    0 = nothing to buy. -1 = invalid numbers.
    Check: (150, 100, 1000, 1800) gives 1800. */
 int price_for_item(int need, int stock, int item, int price_cent)

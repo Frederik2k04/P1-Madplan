@@ -1,0 +1,213 @@
+# ================================================================
+# FIVE MEALS FOR TWO PEOPLE
+# ================================================================
+# All ingredient quantities serve two people.
+# These recipes were prepared with AI assistance and have not been kitchen-tested.
+# Weigh rice and pasta dry; weigh canned beans and sweetcorn drained.
+# Tap water is a kitchen assumption, not a shopping item.
+# Spices are still used when their cost is excluded from the basket.
+# RECIPE;recipe_id;name;servings
+# INGREDIENT;recipe_id;item_id;amount
+# STEP;recipe_id;step_number;instruction
+
+# CONTENTS
+# 1. Pasta with meat sauce
+# 2. Rice with chicken, broccoli and soy sauce
+# 3. Chilli con carne with rice
+# 4. Chilli sin carne with rice
+# 5. Caesar salad with chicken
+
+# ================================================================
+# RECIPE 1 - Pasta with meat sauce
+# ================================================================
+RECIPE;1;Pasta with meat sauce;2
+
+# INGREDIENTS
+
+# Pasta - amount in g
+INGREDIENT;1;1;200
+# Minced beef - amount in g
+INGREDIENT;1;2;250
+# Chopped tomatoes - amount in g
+INGREDIENT;1;8;400
+# Onion - amount in g
+INGREDIENT;1;9;100
+# Rapeseed oil - amount in ml
+INGREDIENT;1;12;10
+# Salt - amount in g
+INGREDIENT;1;13;5
+# Black pepper - amount in g
+INGREDIENT;1;14;1
+
+# METHOD
+
+STEP;1;1;Weigh 100 g onion before peeling. Peel and chop it. Prepare 250 g minced beef, 400 g chopped tomatoes, 10 ml rapeseed oil, 5 g salt and 1 g black pepper.
+
+STEP;1;2;Bring 2000 ml tap water and 3 g of the salt to a boil. Add 200 g pasta. Follow its package cooking time, typically 8-12 minutes, until tender with some bite. This also applies to wholewheat pasta.
+
+STEP;1;3;Heat 10 ml rapeseed oil in a pan over medium heat. Cook the onion for 3-4 minutes, stirring until softened.
+
+STEP;1;4;Add the minced beef and break it up with a spoon. Cook for about 6-8 minutes until fully cooked. Check at least 75 degrees C with a food thermometer.
+
+STEP;1;5;Add the chopped tomatoes with their juice, the remaining 2 g salt and 1 g black pepper. Simmer uncovered for 10 minutes, stirring regularly.
+
+STEP;1;6;Drain the cooked pasta. Divide the pasta and meat sauce between two plates.
+
+# ================================================================
+# RECIPE 2 - Rice with chicken, broccoli and soy sauce
+# ================================================================
+RECIPE;2;Rice with chicken, broccoli and soy sauce;2
+
+# INGREDIENTS
+
+# Rice - amount in g
+INGREDIENT;2;3;150
+# Chicken breast - amount in g
+INGREDIENT;2;4;300
+# Broccoli - amount in g
+INGREDIENT;2;5;300
+# Soy sauce - amount in ml
+INGREDIENT;2;6;25
+# Rapeseed oil - amount in ml
+INGREDIENT;2;12;10
+
+# METHOD
+
+STEP;2;1;Prepare 150 g dry rice, 350 ml tap water, 300 g chicken breast, 300 g broccoli, 25 ml soy sauce and 10 ml rapeseed oil. Wash your hands. Do not rinse raw chicken.
+
+STEP;2;2;Put the rice and 300 ml of the water in a saucepan. Bring to a boil, cover and reduce the heat. Follow the rice package cooking time, typically 10-12 minutes, then rest covered for 5 minutes. Use rice suited to this water ratio. Reserve 50 ml water for the broccoli.
+
+STEP;2;3;Rinse the broccoli. Cut into small florets, peel and thinly slice the stalk. Slice the chicken on a separate clean board. Wash the board, knife and hands after handling raw meat.
+
+STEP;2;4;Heat the oil over medium-high heat. Cook the chicken strips for about 7-9 minutes, turning them. Check at least 75 degrees C in the thickest piece.
+
+STEP;2;5;Add the broccoli, soy sauce and remaining 50 ml water. Cover and cook over medium heat for 4-6 minutes, stirring, until the broccoli is hot and tender with some bite.
+
+STEP;2;6;Divide the rice, chicken and broccoli between two plates.
+
+# ================================================================
+# RECIPE 3 - Chilli con carne with rice
+# ================================================================
+RECIPE;3;Chilli con carne with rice;2
+
+# INGREDIENTS
+
+# Rice - amount in g
+INGREDIENT;3;3;150
+# Minced beef - amount in g
+INGREDIENT;3;2;250
+# Cooked kidney beans - amount in g
+INGREDIENT;3;7;200
+# Chopped tomatoes - amount in g
+INGREDIENT;3;8;400
+# Onion - amount in g
+INGREDIENT;3;9;100
+# Rapeseed oil - amount in ml
+INGREDIENT;3;12;10
+# Salt - amount in g
+INGREDIENT;3;13;3
+# Black pepper - amount in g
+INGREDIENT;3;14;1
+# Paprika - amount in g
+INGREDIENT;3;15;4
+# Ground cumin - amount in g
+INGREDIENT;3;16;2
+# Chilli powder - amount in g
+INGREDIENT;3;17;1
+
+# METHOD
+
+STEP;3;1;Weigh 100 g onion before peeling, then peel and chop it. Drain and rinse the cooked kidney beans and weigh 200 g without liquid. If the approved alternative is selected, use 200 g drained black beans in the same way.
+
+STEP;3;2;Put 150 g dry rice and 300 ml tap water in a saucepan. Bring to a boil, reduce heat, cover and follow the package cooking time. Rest covered for 5 minutes. Use rice suited to this water ratio.
+
+STEP;3;3;Heat 10 ml rapeseed oil over medium heat. Cook the onion for 3-4 minutes. Add 250 g minced beef and break it up. Cook for 6-8 minutes until fully cooked, check at least 75 degrees C.
+
+STEP;3;4;Stir in 4 g paprika, 2 g ground cumin and 1 g chilli powder for 30 seconds. Immediately add 400 g chopped tomatoes with their juice.
+
+STEP;3;5;Add the 200 g drained beans, 3 g salt and 1 g black pepper. Simmer for 15 minutes, stirring, until the beans are thoroughly hot and the sauce thickens slightly.
+
+STEP;3;6;Divide the rice and chilli between two plates.
+
+# ================================================================
+# RECIPE 4 - Chilli sin carne with rice
+# ================================================================
+RECIPE;4;Chilli sin carne with rice;2
+
+# INGREDIENTS
+
+# Rice - amount in g
+INGREDIENT;4;3;150
+# Cooked kidney beans - amount in g
+INGREDIENT;4;7;250
+# Canned sweetcorn - amount in g
+INGREDIENT;4;11;150
+# Red bell pepper - amount in pcs
+INGREDIENT;4;10;1
+# Chopped tomatoes - amount in g
+INGREDIENT;4;8;400
+# Onion - amount in g
+INGREDIENT;4;9;100
+# Rapeseed oil - amount in ml
+INGREDIENT;4;12;10
+# Salt - amount in g
+INGREDIENT;4;13;3
+# Black pepper - amount in g
+INGREDIENT;4;14;1
+# Paprika - amount in g
+INGREDIENT;4;15;4
+# Ground cumin - amount in g
+INGREDIENT;4;16;2
+# Chilli powder - amount in g
+INGREDIENT;4;17;1
+
+# METHOD
+
+STEP;4;1;Weigh 100 g onion before peeling, then peel and chop it. Rinse 1 red bell pepper, remove the stalk and seeds, and dice it. Drain and rinse the beans and sweetcorn. Weigh 250 g cooked beans and 150 g sweetcorn without liquid. The approved black bean alternative uses the same drained quantity.
+
+STEP;4;2;Put 150 g dry rice and 300 ml tap water in a saucepan. Bring to a boil, reduce heat, cover and follow the package cooking time. Rest covered for 5 minutes. Use rice suited to this water ratio.
+
+STEP;4;3;Heat 10 ml rapeseed oil over medium heat. Cook the onion and pepper for 5-6 minutes, stirring until softened.
+
+STEP;4;4;Stir in 4 g paprika, 2 g ground cumin and 1 g chilli powder for 30 seconds. Immediately add 400 g chopped tomatoes with their juice.
+
+STEP;4;5;Add the beans, sweetcorn, 3 g salt and 1 g black pepper. Simmer for 15 minutes, stirring, until thoroughly hot and the sauce lightly coats the vegetables.
+
+STEP;4;6;Divide the rice and vegetarian chilli between two plates.
+
+# ================================================================
+# RECIPE 5 - Caesar salad with chicken
+# ================================================================
+RECIPE;5;Caesar salad with chicken;2
+
+# INGREDIENTS
+
+# Chicken breast - amount in g
+INGREDIENT;5;4;300
+# Romaine lettuce - amount in pcs
+INGREDIENT;5;18;1
+# Croutons - amount in g
+INGREDIENT;5;19;60
+# Parmesan - amount in g
+INGREDIENT;5;20;40
+# Ready-made Caesar dressing - amount in ml
+INGREDIENT;5;21;80
+# Rapeseed oil - amount in ml
+INGREDIENT;5;12;10
+# Salt - amount in g
+INGREDIENT;5;13;2
+# Black pepper - amount in g
+INGREDIENT;5;14;1
+
+# METHOD
+
+STEP;5;1;Rinse the leaves of 1 romaine lettuce and drain them. Grate 40 g parmesan. Prepare 60 g ready-made croutons and 80 ml ready-made Caesar dressing. Use dressing labelled in ml.
+
+STEP;5;2;Slice 300 g chicken breast on a clean board. Season with 2 g salt and 1 g black pepper. Wash hands, knife and board after handling raw chicken. Do not rinse the raw chicken.
+
+STEP;5;3;Heat 10 ml rapeseed oil over medium-high heat. Cook the chicken for about 7-9 minutes, turning the strips. Check at least 75 degrees C in the thickest piece.
+
+STEP;5;4;Rest the chicken on a clean plate for 3 minutes. Tear the lettuce into bite-sized pieces.
+
+STEP;5;5;Toss the lettuce with the dressing. Divide between two plates, add chicken, parmesan and croutons, and serve immediately.
+

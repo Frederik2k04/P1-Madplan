@@ -2,16 +2,16 @@
 #include "functions.h"
 
 
-/* Programmets start.
-   Første version bruger faste testtal. Ingen data hentes fra nettet. */
+/* Program entry point.
+   The initial version uses fixed test values. No data is downloaded. */
 
     int main(void)
 {
     int budget_kr;
-    printf("Budget in whole kroner:");
+    printf("Budget in whole DKK:");
     if (scanf("%d", &budget_kr) !=1 ||
-    budget_kr < 0 || budget_kr > 10000) {
-        printf( "Write a whole number from 0 to 10.000.\n") ;
+    budget_kr < 0 || budget_kr > 1000) {
+        printf( "Write a whole number from 0 to 1000dkk :D.\n") ;
             return 1;
         }
     int budget_cent = budget_kr * 100;
@@ -31,7 +31,7 @@
      }
 
       int stock_egg;
-        printf("egg home (stk): ");
+        printf("egg home (pcs): ");
         if (scanf("%d", &stock_egg) !=1 ||
      stock_egg < 0 || stock_egg > 100000) {
 
@@ -44,7 +44,7 @@
     if (scanf("%d", &stock_broccoli) !=1 ||
      stock_broccoli < 0 || stock_broccoli > 100000) {
 
-        printf("skriv et helt tal fra 0 til 10.0000.\n");
+        printf("Enter a whole number from 0 to 100000.\n");
             return 1;
      }
 
@@ -70,10 +70,10 @@
     }
 
     if(req_egg == 0) {
-        printf("egg: need %d stk, home %d stk. you have enough.\n",
+        printf("egg: need %d pcs, home %d pcs. you have enough.\n",
            need_egg, stock_egg);
     } else {
-        printf("egg: need %d stk, home %d stk, missing %d stk. \n", 
+        printf("egg: need %d pcs, home %d pcs, missing %d pcs. \n", 
             need_egg, stock_egg, req_egg);
     }
 
@@ -88,20 +88,20 @@
     
 
     if (price < 0) {
-        printf("price is not calculated yet. Se TODO i c/pris.c.\n");
+        printf("price is not calculated yet. See the notes in price.c.\n");
     } else {
         printf("buy rice: %d,%02d kr.\n", price / 100, price % 100);
 
     }
 
    if (price_egg < 0) {
-        printf("price is not calculated yet. Se TODO i c/pris.c.\n");
+        printf("price is not calculated yet. See the notes in price.c.\n");
     } else {
         printf("buy Egg: %d,%02d kr.\n", price_egg / 100, price_egg % 100);
     }
 
     if (price_broccoli < 0) {
-        printf("price is not calculated yet. Se TODO i c/pris.c.\n");
+        printf("price is not calculated yet. See the notes in price.c.\n");
     } else {
         printf("buy Broccoli: %d,%02d kr.\n", price_broccoli / 100, price_broccoli % 100);
     }
@@ -128,9 +128,9 @@
 
 
 
-    /* AK - lav én opgave ad gangen:
-       TODO 4: Vis kun total og restbudget, hvis alle priser er gyldige.
-               Vis også, hvis budgettet overskrides.
-       TODO 5 (senere): Skriv resultatet til HTML. Se README. */
+    /* AK - work on one task at a time.
+       TODO 4: Show the total and remaining budget only when all prices are valid.
+               Also show when the budget is exceeded.
+       Historical TODO 5: HTML output. This is outside the reduced terminal scope. */
     return 0;
 }

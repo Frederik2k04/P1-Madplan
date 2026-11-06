@@ -28,3 +28,23 @@ int read_line(char text[], int capacity)
     }
     return 1;
 }
+
+int read_number(const char prompt[], int minimum, int maximum, int *number)
+{
+    char text[80];
+    while (1) {
+        printf("%s", prompt);
+        fflush(stdout);
+        int status = read_line(text, (int)sizeof text);
+        if (status == 0) {
+            printf("\nInput ended. Goodbye.\n");
+            return 0;
+        }
+        if (status == 1) {
+            if (parse_number(text, minimum, maximum, number)) {
+                return 1;
+            }
+        }
+        printf("Enter a whole number from %d to %d.\n", minimum, maximum);
+    }
+}

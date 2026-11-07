@@ -7,6 +7,11 @@ int missing_amount(int need, int stock);
 int price_for_item(int need, int stock, int item, int price_cent);
 int read_line(char text[], int capacity);
 
+int count_packages (int missing, int package_amount);
+
+int parse_number (const char text [], int minimum, int maximum, int *number);
+
 #endif
+
 
 

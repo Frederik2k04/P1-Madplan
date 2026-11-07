@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "functions.h"
+#include "price.c"
 
 
 /* Program entry point.
@@ -134,3 +135,5 @@
        Historical TODO 5: HTML output. This is outside the reduced terminal scope. */
     return 0;
 }
+
+

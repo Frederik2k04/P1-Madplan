@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "functions.h"
 #include "price.c"
+#include "catalog.c"
+#include "terminal.c"
 
 
 /* Program entry point.
@@ -9,12 +11,9 @@
     int main(void)
 {
     int budget_kr;
-    printf("Budget in whole DKK:");
-    if (scanf("%d", &budget_kr) !=1 ||
-    budget_kr < 0 || budget_kr > 1000) {
-        printf( "Write a whole number from 0 to 1000dkk :D.\n") ;
-            return 1;
-        }
+    if (!read_number ("Budget in whole Kroner: ", 0, 10000, &budget_kr)) {
+        return 0;
+    }
     int budget_cent = budget_kr * 100;
 
     int need_rice = 150;

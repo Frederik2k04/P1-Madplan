@@ -1,50 +1,34 @@
 #include "functions.h"
 #include <stdio.h>
-#include <string.h>
 
-int read_line(char text[], int capacity)
+int read_number(char prompt[], int minimum, int maximum)
 {
-    if (fgets(text, capacity, stdin) == NULL) {
-        if (ferror(stdin)) {
-            fprintf(stderr, "Cannot read terminal input.\n");
-        }
-        return 0;
-    }
-    int length = (int)strlen(text);
-    if (length > 0 && text[length - 1] == '\n') {
-        text[length - 1] = '\0';
-        length = length - 1;
-    } else {
-        int character = getchar();
-        if (character != EOF) {
-            while (character != '\n' && character != EOF) {
-                character = getchar();
-            }
-            return -1;
-        }
-    }
-    if (length > 0 && text[length - 1] == '\r') {
-        text[length - 1] = '\0';
-    }
-    return 1;
-}
+    int number;
+    char ending;
+    int values_read;
 
-int read_number(const char prompt[], int minimum, int maximum, int *number)
-{
-    char text[80];
-    while (1) {
-        printf("%s", prompt);
-        fflush(stdout);
-        int status = read_line(text, (int)sizeof text);
-        if (status == 0) {
-            printf("\nInput ended. Goodbye.\n");
-            return 0;
-        }
-        if (status == 1) {
-            if (parse_number(text, minimum, maximum, number)) {
-                return 1;
-            }
-        }
-        printf("Enter a whole number from %d to %d.\n", minimum, maximum);
+    printf("%s\n", prompt);
+    values_read = scanf("%d%c", &number, &ending);
+
+    if (values_read != 2) {
+        printf("Enter one whole number. Calculation stopped.\n");
+        return -1;
     }
+
+    if (ending != '\n') {
+        printf("Press Enter directly after the number. Calculation stopped.\n");
+        return -1;
+    }
+
+    if (number < minimum) {
+        printf("The minimum is %d. Calculation stopped.\n", minimum);
+        return -1;
+    }
+
+    if (number > maximum) {
+        printf("The maximum is %d. Calculation stopped.\n", maximum);
+        return -1;
+    }
+
+    return number;
 }

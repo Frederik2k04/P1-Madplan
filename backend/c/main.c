@@ -1,136 +1,82 @@
-#include <stdio.h>
 #include "functions.h"
-#include "price.c"
-#include "catalog.c"
-#include "terminal.c"
+#include <stdio.h>
 
-
-/* Program entry point.
-   The initial version uses fixed test values. No data is downloaded. */
-
-    int main(void)
+int main(void)
 {
     int budget_kr;
-    if (!read_number ("Budget in whole Kroner: ", 0, 10000, &budget_kr)) {
-        return 0;
-    }
-    int budget_cent = budget_kr * 100;
-
+    int budget_cent;
     int need_rice = 150;
-
     int need_egg = 2;
     int need_broccoli = 200;
-
     int stock_rice;
-        printf("rice home (gram): ");
-        if (scanf("%d", &stock_rice) !=1 ||
-     stock_rice < 0 || stock_rice > 100000) {
+    int stock_egg;
+    int stock_broccoli;
+    int missing_rice;
+    int missing_egg;
+    int missing_broccoli;
+    int price_rice;
+    int price_egg;
+    int price_broccoli;
+    int total_cent;
 
-        printf("Write a whole number from 0 to 10.000.\n");
-            return 1;
-     }
+    budget_kr = read_number("Budget in whole DKK (0..1000):", 0, 1000);
 
-      int stock_egg;
-        printf("egg home (pcs): ");
-        if (scanf("%d", &stock_egg) !=1 ||
-     stock_egg < 0 || stock_egg > 100000) {
-
-        printf("Write a whole number from 0 to 10.000.\n");
-            return 1;
-     }
-
-      int stock_broccoli;
-        printf("broccoli home (gram): ");
-    if (scanf("%d", &stock_broccoli) !=1 ||
-     stock_broccoli < 0 || stock_broccoli > 100000) {
-
-        printf("Enter a whole number from 0 to 100000.\n");
-            return 1;
-     }
-
-
-    int req = missing_amount(need_rice, stock_rice);
-    int req_egg = missing_amount(need_egg, stock_egg);
-    int req_broccoli = missing_amount(need_broccoli, stock_broccoli);
-
-
-    int price = price_for_item(need_rice, stock_rice, 1000, 1800);
-    int price_egg = price_for_item(need_egg, stock_egg, 6, 1800);
-    int price_broccoli = price_for_item(need_broccoli, stock_broccoli, 500, 1500);
-
-        printf("\033[1mfoodplan - foundation with clear testdata\033[0m\n");
-        printf("Budget: %d kr.\n", budget_cent / 100);
-    
-    if(req == 0) {
-        printf("Rice: need %d g, home %d g. You have enough.\n",
-           need_rice, stock_rice);
-    } else {
-        printf("Rice: need %d g, home %d g, missing %d g. \n", 
-            need_rice, stock_rice, req);
-    }
-
-    if(req_egg == 0) {
-        printf("egg: need %d pcs, home %d pcs. you have enough.\n",
-           need_egg, stock_egg);
-    } else {
-        printf("egg: need %d pcs, home %d pcs, missing %d pcs. \n", 
-            need_egg, stock_egg, req_egg);
-    }
-
-    if(req_broccoli == 0) {
-        printf("Broccoli: need %d g, home %d g. You have enough.\n",
-           need_broccoli, stock_broccoli);
-    } else {
-        printf("Broccoli: Need %d g, home %d g, missing %d g. \n", 
-            need_broccoli, stock_broccoli, req_broccoli);
-    }
-
-    
-
-    if (price < 0) {
-        printf("price is not calculated yet. See the notes in price.c.\n");
-    } else {
-        printf("buy rice: %d,%02d kr.\n", price / 100, price % 100);
-
-    }
-
-   if (price_egg < 0) {
-        printf("price is not calculated yet. See the notes in price.c.\n");
-    } else {
-        printf("buy Egg: %d,%02d kr.\n", price_egg / 100, price_egg % 100);
-    }
-
-    if (price_broccoli < 0) {
-        printf("price is not calculated yet. See the notes in price.c.\n");
-    } else {
-        printf("buy Broccoli: %d,%02d kr.\n", price_broccoli / 100, price_broccoli % 100);
-    }
-
-    if (price < 0 || price_egg < 0 || price_broccoli < 0) {
-
-        printf("Error: a price is missing. Total cannot be calculated\n");
+    if (budget_kr == -1) {
         return 1;
     }
 
-    int total = price + price_egg + price_broccoli;
-        printf("Total: %d, %02d kr.\n", total / 100, total % 100);
+    budget_cent = budget_kr * 100;
+    stock_rice = read_number("Rice at home (g, 0..5000):", 0, 5000);
 
-    if (total <= budget_cent) {
-    int left = budget_cent - total;
-        printf("Left of budget: %d, %02d kr.\n", left / 100, left % 100);
+    if (stock_rice == -1) {
+        return 1;
     }
 
-    else {
-    int over = total - budget_cent;
-    printf("Over budget: %d, %02d kr.\n", over / 100, over % 100);
+    stock_egg = read_number("Eggs at home (pcs, 0..5000):", 0, 5000);
 
+    if (stock_egg == -1) {
+        return 1;
     }
 
+    stock_broccoli = read_number("Broccoli at home (g, 0..5000):", 0, 5000);
 
+    if (stock_broccoli == -1) {
+        return 1;
+    }
 
-    /* - AK */
+    missing_rice = missing_amount(need_rice, stock_rice);
+    missing_egg = missing_amount(need_egg, stock_egg);
+    missing_broccoli = missing_amount(need_broccoli, stock_broccoli);
+
+    price_rice = price_for_item(need_rice, stock_rice, 1000, 1800);
+    price_egg = price_for_item(need_egg, stock_egg, 6, 1800);
+    price_broccoli = price_for_item(need_broccoli, stock_broccoli, 500, 1500);
+
+    printf("\nRice: need %d g, home %d g, missing %d g\n",
+           need_rice, stock_rice, missing_rice);
+    printf("Eggs: need %d pcs, home %d pcs, missing %d pcs\n",
+           need_egg, stock_egg, missing_egg);
+    printf("Broccoli: need %d g, home %d g, missing %d g\n",
+           need_broccoli, stock_broccoli, missing_broccoli);
+
+    printf("Rice purchase: %d,%02d DKK\n", price_rice / 100, price_rice % 100);
+    printf("Egg purchase: %d,%02d DKK\n", price_egg / 100, price_egg % 100);
+    printf("Broccoli purchase: %d,%02d DKK\n", price_broccoli / 100, price_broccoli % 100);
+
+    total_cent = price_rice + price_egg + price_broccoli;
+    printf("Total: %d,%02d DKK\n", total_cent / 100, total_cent % 100);
+
+    if (total_cent <= budget_cent) {
+        int left;
+
+        left = budget_cent - total_cent;
+        printf("Left: %d,%02d DKK\n", left / 100, left % 100);
+    } else {
+        int over;
+
+        over = total_cent - budget_cent;
+        printf("Over budget: %d,%02d DKK\n", over / 100, over % 100);
+    }
+
     return 0;
 }
-
-
-

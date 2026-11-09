@@ -59,7 +59,7 @@ while (1) {
             length = length -1;
                 }
         else {
-        int character =fgetc(file);
+int character =fgetc(file);
         if (character !=EOF) {
             return -1;
                 }
@@ -76,3 +76,53 @@ while (1) {
                 }
                 }
                 }
+
+int split_fields(const char line [], char fields [] [FIELD_SIZE]) {
+int field = 0;
+int column = 0;
+int position = 0;
+while (1) {
+char character = line [position];
+    if (character == ';' || character == '\0') {
+    if (column == 0) {
+        return -1;
+                }
+    fields [field][column] = '\0';
+    if (character == '\0') {
+        return field + 1;
+                }
+    field = field + 1;
+    if (field >=MAX_FIELDS) {
+        return -1;
+                }
+
+    column = 0;
+                }
+    else {
+        if (column>= FIELD_SIZE - 1) {
+        return -1;
+
+                } 
+    fields [field][column] = character;
+     column =column + 1;
+    
+                }
+    position = position + 1;
+
+                }
+                }
+
+int find_item_index(const Catalog *catalog, int id)
+{
+for (int index = 0; index < catalog -> item_count; index = index + 1) {
+if (catalog ->items[index].id == id) {
+return index;
+                }
+                }
+return -1;
+
+                }
+
+
+
+

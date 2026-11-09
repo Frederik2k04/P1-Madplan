@@ -128,10 +128,7 @@
 
 
 
-    /* AK - work on one task at a time.
-       TODO 4: Show the total and remaining budget only when all prices are valid.
-               Also show when the budget is exceeded.
-       Historical TODO 5: HTML output. This is outside the reduced terminal scope. */
+    /* - AK */
     return 0;
 }
 

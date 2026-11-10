@@ -1,6 +1,6 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
-
+#include <stdio.h>
 
 int missing_amount(int need, int stock);
 int count_packages(int missing, int package_amount);

@@ -8,7 +8,7 @@ int main(void)
     int need_rice = 150;
     int need_egg = 2;
     int need_broccoli = 200;
-    int stock_rice;
+    int stock_rice; 
     int stock_egg;
     int stock_broccoli;
     int missing_rice;

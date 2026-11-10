@@ -11,3 +11,12 @@ int read_address(char address[]);
 
 
 #endif
+
+#define MAX_RECIPES 8
+typedef struct {
+    int loaded;
+    char name[80];
+} Recipe;
+
+int load_recipes(Recipe recipes[]);
+

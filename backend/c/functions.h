@@ -10,7 +10,7 @@ int read_text(FILE *file, char text[], int capacity);
 int read_address(char address[]);
 
 
-#endif
+
 
 #define MAX_RECIPES 8
 typedef struct {
@@ -20,3 +20,4 @@ typedef struct {
 
 int load_recipes(Recipe recipes[]);
 
+#endif

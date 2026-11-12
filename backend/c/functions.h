@@ -14,10 +14,30 @@ typedef struct {
 char name [80];
 char address [160];
 int walking_meters;
-} Store;
+                } Store;
 
 
 
 int load_stores(Store stores[]);
 void show_context(Store stores[], char address[]);
+
+#define MAX_ITEMS 30
+typedef struct {
+char name [80];
+char unit [4];
+int is_spice;
+int package_amount [MAX_STORES + 1];
+int price_cent [MAX_STORES + 1];
+                } Item;
+
+int load_items(Item items[]);
+int load_prices(Item items []);
+
+#define MAX_RECIPES 8
+typedef struct {
+int loaded;
+char name [80];
+                } Recipe;
+
+int load_recipes(Recipe recipes []);
 #endif

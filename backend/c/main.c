@@ -1,8 +1,20 @@
 #include "functions.h"
 #include <stdio.h>
 
+
 int main(void)
 {
+    Store stores[MAX_STORES + 1] = {0};
+    if (load_stores(stores) == 0) {
+        return 1;
+                }
+
+    char address [160];
+    if (read_address(address) == 0) {
+        return 1;
+                }
+    show_context(stores, address);
+                
     int budget_kr;
     int budget_cent;
     int need_rice = 150;

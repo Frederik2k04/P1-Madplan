@@ -157,3 +157,18 @@ int load_instructions(Recipe recipes[])
 
     return 1;
 }
+
+void show_recipe(Recipe recipe, Item items[])
+{
+    printf("\n%s - 2 PEOPLE\n", recipe.name);
+
+    for (int item_id = 1; item_id <= MAX_ITEMS; item_id = item_id +1) {
+        int amount;
+
+        amount = recipe.amount[item_id];
+
+        if (amount > 0) {
+            printf("%s: %d %s\n", items[item_id].name, amount, items[item_id].unit);
+        }
+    }
+}

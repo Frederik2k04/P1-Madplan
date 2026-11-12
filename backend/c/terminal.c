@@ -83,3 +83,28 @@ int read_address(char address[])
 
     return 1;
 }
+
+int choose_recipe(Recipe recipes[])
+{
+    int choice;
+
+    printf("\nCHOOSE A RECIPE FOR 2 PEOPLE\n");
+
+
+    for (int recipe_id = 1; recipe_id <= MAX_RECIPES; recipe_id = recipe_id + 1){
+        if (recipes[recipe_id].loaded == 1) {
+            printf("%d. %s\n", recipe_id, recipes[recipe_id].name);
+        }
+    }
+    printf("0. for exit\n");
+    choice = read_number("Recipe number:", 0, MAX_RECIPES);
+
+    if (choice <= 0){
+        return choice;
+    }
+    if (recipes[choice].loaded == 0){
+        printf("that recipe number is not in the data file\n");
+        return -1;
+    }
+    return choice;
+}

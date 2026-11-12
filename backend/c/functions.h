@@ -16,8 +16,8 @@ char address [160];
 int walking_meters;
 } Store;
 
+
+
 int load_stores(Store stores[]);
 void show_context(Store stores[], char address[]);
 #endif
-
-

@@ -172,3 +172,26 @@ void show_recipe(Recipe recipe, Item items[])
         }
     }
 }
+
+void build_needs(Recipe recipe, int needed[])
+{
+    for (int item_id = 1; item_id <= MAX_ITEMS; item_id = item_id + 1) {
+        needed[item_id] = 0;
+    }
+    
+    for (int item_id = 1; item_id <= MAX_ITEMS; item_id = item_id + 1) {
+        int amount;
+        
+        amount = recipe.amount[item_id];
+
+        needed[item_id] = amount;
+    }
+}
+
+void show_instructions(Recipe recipe)
+{
+    printf("\nCOOKING: %s\n", recipe.name);
+    for (int step = 1; step <= recipe.instruction_count; step = step + 1) {
+        printf("%d. %s\n", step, recipe.instructions[step]);
+    }
+}

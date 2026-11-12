@@ -1,128 +1,62 @@
-#include <stdio.h>
-#include <string.h>
 #include "functions.h"
+#include <stdio.h>
 
+int load_stores(Store stores[])
+{
+    FILE*file;
+    int number;
+    int store_id = 0;
+    int values_read;
+    int entry_ok;
 
-    int parse_number(const char text[], int minimum, int maximum, int *number)
-
-                {
-    int value = 0;
-    int position = 0;
-        if (text [0] == '\0') {
-            return 0;
-                }
-
-while (text[position] !='\0') {
-if (text[position] < '0' || text[position] > '9') {
-            return 0;
-                }
-int digit = text[position] - '0';
-/* This part checks before multiplying, so even very long numbers cannot overflow. -AK */
-
-if (value > maximum / 10) {
-            return 0;
-                }
-
-if (value == maximum/10) {
-    if (digit > maximum % 10) {
+    file = fopen("backend/data/stores.txt", "r");
+    if (file == NULL) {
+        printf("cannot open backend/data/stores.txt. \n");
         return 0;
                 }
-                }
+    number = 0;
+    values_read = fscanf (file, "%d", &store_id);
+    while (values_read == 1) {
+    number = number +1;
+    entry_ok = 1;
+    if (store_id < 1 || store_id > MAX_STORES) {
+        entry_ok = 0;
 
-
-value =value* 10 + digit;
-position = position + 1;
                 }
-    if (value < minimum) {
+    if (entry_ok == 0) {
+        printf("Check entry %d in stores.txt \n", number);
+        fclose(file);
         return 0;
                 }
-    *number = value;
+        
+    fscanf(file, "%d", &stores[store_id].walking_meters);
+        read_text(file, stores[store_id].name, 80);
+        read_text(file, stores[store_id].address, 160);
+
+        values_read = fscanf(file, "%d", &store_id);
+
+                }
+
+    if (values_read !=EOF) {
+        printf ("Check entry %d in stores.txt and try again \n", number +1);
+        fclose(file);
+        return 0;
+                }
+    fclose(file);
+    
     return 1;
 
-
                 }
 
-int next_data_line(FILE *file, char line [], int capacity, int*line_number) {
-while (1) {
-    char * read_result = fgets (line, capacity, file);
-    if (read_result == NULL) {
-    if (ferror(file)) {
-        return -1;
-                }
-        return 0;
-                }
+void show_context(Store stores[], char address[]) {
+    printf("\nADDRESS\n%s\n", address);
+    printf("the three stores were selected outside the program. \n");
 
-    *line_number = * line_number + 1;
-    int length = (int)strlen(line);
-        if (length > 0 && line[length -1] == '\n') {
-            line[length - 1] = '\0';
-            length = length -1;
-                }
-        else {
-int character =fgetc(file);
-        if (character !=EOF) {
-            return -1;
-                }
-        if (ferror(file)) {
-            return -1;
-                }
-                }
-        if (length > 0 && line[length - 1] == '\r') {
-            line[length - 1] = '\0';
-                }
-        if (line[0] != '\0' && line [0] != '#') {
-            return 1;
+        for (int store_id = 1; store_id <= MAX_STORES; store_id = store_id +1) {
 
+    printf("%d. %s\n", store_id, stores[store_id].name);
+    printf("%s\n", stores[store_id].address);
+    printf("Saved walking distance: %d m\n", stores[store_id].walking_meters);
                 }
-                }
-                }
-
-int split_fields(const char line [], char fields [] [FIELD_SIZE]) {
-int field = 0;
-int column = 0;
-int position = 0;
-while (1) {
-char character = line [position];
-    if (character == ';' || character == '\0') {
-    if (column == 0) {
-        return -1;
-                }
-    fields [field][column] = '\0';
-    if (character == '\0') {
-        return field + 1;
-                }
-    field = field + 1;
-    if (field >=MAX_FIELDS) {
-        return -1;
-                }
-
-    column = 0;
-                }
-    else {
-        if (column>= FIELD_SIZE - 1) {
-        return -1;
-
+    printf("Water is assumed available at home\n");
                 } 
-    fields [field][column] = character;
-     column =column + 1;
-    
-                }
-    position = position + 1;
-
-                }
-                }
-
-int find_item_index(const Catalog *catalog, int id)
-{
-for (int index = 0; index < catalog -> item_count; index = index + 1) {
-if (catalog ->items[index].id == id) {
-return index;
-                }
-                }
-return -1;
-
-                }
-
-
-
-

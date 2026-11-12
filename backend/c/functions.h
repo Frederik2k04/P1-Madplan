@@ -9,14 +9,15 @@ int read_number(char prompt[], int minimum, int maximum);
 int read_text(FILE *file, char text[], int capacity);
 int read_address(char address[]);
 
+#define MAX_STORES 3
+typedef struct {
+char name [80];
+char address [160];
+int walking_meters;
+} Store;
 
+int load_stores(Store stores[]);
+void show_context(Store stores[], char address[]);
 #endif
 
-#define MAX_RECIPES 8
-typedef struct {
-    int loaded;
-    char name[80];
-} Recipe;
-
-int load_recipes(Recipe recipes[]);
 

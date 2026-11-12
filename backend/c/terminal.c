@@ -108,3 +108,20 @@ int choose_recipe(Recipe recipes[])
     }
     return choice;
 }
+
+int choose_store(int totals[])
+{
+    int choice;
+
+    choice = read_number("store number (0 = exit):", 0, MAX_STORES);
+    if (choice <= 0) {
+        return choice;
+    }
+
+    if (totals[choice] == -1) {
+        printf("that store is missing a required price. calculation has stopped\n");
+        return -1;
+    }
+
+    return choice;
+}

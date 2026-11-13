@@ -34,10 +34,29 @@ int load_items(Item items[]);
 int load_prices(Item items []);
 
 #define MAX_RECIPES 8
+#define MAX_STEPS 12
 typedef struct {
 int loaded;
 char name [80];
+int amount[MAX_ITEMS + 1];
+char instructions [MAX_STEPS + 1] [320];
+int instruction_count;
                 } Recipe;
 
 int load_recipes(Recipe recipes []);
+int load_ingredients(Recipe recipes[]);
+int load_instructions(Recipe recipes[]);
+int choose_recipe(Recipe recipes[]);
+void show_recipe (Recipe recipe, Item items[]);
+void build_needs(Recipe recipe, int needed[]);
+int calculate_store(Item items[], int needed[], int stock[], int store_id);
+
+void show_comparison(Store stores[], int totals[], int budget_cent);
+
+int choose_store(int totals []);
+void show_receipt (Store store, Item items[], int needed[], int stock[], int store_id);
+
+void show_instructions(Recipe recipe);
 #endif
+
+

@@ -125,3 +125,4 @@ int choose_store(int totals[])
 
     return choice;
 }
+

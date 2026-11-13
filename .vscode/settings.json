@@ -1,4 +1,11 @@
 {
+  "code-runner.executorMap": {
+    "c": "cd \"$workspaceRoot\" && mkdir -p backend/c/output && cc -std=c11 -Wall -Wextra -Wpedantic -Werror backend/c/main.c -o backend/c/output/mealplan && ./backend/c/output/mealplan"
+  },
+  "c-cpp-compile-run.custom-run-prefix": "sh -c 'p=$(pwd)/$0; cd ../../.. && exec \"$p\"'",
+  "code-runner.runInTerminal": true,
+  "code-runner.saveAllFilesBeforeRun": true,
+  "code-runner.clearPreviousOutput": true,
   "C_Cpp_Runner.cCompilerPath": "clang",
   "C_Cpp_Runner.cppCompilerPath": "clang++",
   "C_Cpp_Runner.debuggerPath": "lldb",

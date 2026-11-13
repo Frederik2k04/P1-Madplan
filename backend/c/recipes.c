@@ -195,3 +195,4 @@ void show_instructions(Recipe recipe)
         printf("%d. %s\n", step, recipe.instructions[step]);
     }
 }
+

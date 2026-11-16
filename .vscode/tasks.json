@@ -4,7 +4,7 @@
     {
       "label": "Build and run mealplan",
       "type": "shell",
-      "command": "mkdir -p backend/c/output && cc -std=c11 -Wall -Wextra -Wpedantic -Werror backend/c/main.c -o backend/c/output/mealplan && ./backend/c/output/mealplan",
+      "command": "mkdir -p backend/c/output && cc -std=c11 -Wall -Wextra -Wpedantic -Werror backend/c/main.c backend/c/catalog.c backend/c/recipes.c backend/c/price.c backend/c/terminal.c -o backend/c/output/mealplan && ./backend/c/output/mealplan",
       "options": {
         "cwd": "${workspaceFolder}"
       },

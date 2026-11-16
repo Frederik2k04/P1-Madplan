@@ -1,9 +1,5 @@
 #include "functions.h"
 #include <stdio.h>
-#include "price.c"
-#include "recipes.c"
-#include "terminal.c"
-#include "catalog.c"
 
 int run_calculation(Item items[], Store stores[], Recipe recipes[])
 {

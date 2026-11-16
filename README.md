@@ -1,60 +1,54 @@
-# Meal planner · beginner C project
+# Meal planner
 
-The original program is developed in this project folder. It currently contains
-`backend/c/main.c`, `price.c` and `functions.h`. The learning guide starts by
-explaining those files and then develops the program one function at a time.
+P1 project, 1st semester. A small C program for the terminal. You pick a recipe and a budget, and it tells you what the groceries cost in 3 stores.
 
-## Open the learning guide
+## Run it
 
-Open [the learning guide](<../Produkt test/p1 madplan test/laeseguider/index.html>).
-Choose your person and either **Guide 1 · Learn and write it yourself** or
-**Guide 2 · Build with code and explanations**.
+Double-click `start/Start.command` on a Mac.
 
-The guide has a **Use my project path (Freddy)** button and a custom-folder option.
-Both update the displayed locations and the commands copied to Terminal. Guide 2
-has a fixed expandable full-code drawer on pages that change C code.
-
-## Three input files
-
-| File | Contents |
-|---|---|
-| `backend/data/items.txt` | Stores 1–3, items 1–23, 69 package prices and two substitutions. |
-| `backend/data/address.txt` | One case address. |
-| `backend/data/recipes.txt` | Recipes 1–5, each serving two people, with ingredients and cooking steps. |
-
-Each register starts at 1. An ID is not an array index: item ID 1 normally occupies
-index 0. Prices are integer ore. Quantities use g, ml or pcs.
-
-```
-PRICE;item_id;store_id;product;package_amount;package_price_ore
-```
-
-Price rows have exactly six fields. Dates and sources are documented only in the
-guide. The inherited data is 66 project prices and three Netto advertisement
-prices; it does not establish the cheapest local shelf-price basket.
-
-The starting program does not yet read these files. Follow the guide to build
-that functionality in this same project.
-
-## Run the original starting program
-
-Run from this project root:
+Or run this in the terminal from this folder (the one with `backend` in it):
 
 ```sh
-mkdir -p backend/c/output &&
-cc -std=c11 -Wall -Wextra -Wpedantic -Werror backend/c/main.c backend/c/price.c -o backend/c/output/mealplan &&
-printf '60\n100\n1\n0\n' | ./backend/c/output/mealplan
+mkdir -p backend/c/output && cc -std=c11 -Wall -Wextra -Wpedantic -Werror backend/c/main.c backend/c/catalog.c backend/c/recipes.c backend/c/price.c backend/c/terminal.c -o backend/c/output/mealplan && ./backend/c/output/mealplan
 ```
 
-Expected total: 51 DKK; remaining budget: 9 DKK. Once you start adding functions,
-use the command shown in the current lesson instead of this starting command.
+It has to be run from this folder, or it cant find the data files.
 
-## Working together
+## How to use it
 
-Person 1 owns main.c, price.c, catalog.c and the shared functions.h. Person 2 owns
-terminal.c and recipes.c. Only Person 1 edits the shared header. Obtain the listed
-dependencies before integration. All submitted code must meet your supervisor’s
-requirements for authorship, understanding and independent explanation.
+The program asks for three things:
 
-The older frontend and input material is historical and is not required by this
-reduced terminal program. No network, SQL or browser integration is required.
+- recipe number (1-5)
+- budget in DKK (0-1000)
+- store number (1-3)
+
+Type 0 to quit. If a store is missing a price you cant choose it.
+
+Then it prints the shopping list and the steps for the recipe.
+
+## Files
+
+All in `backend/c/`:
+
+- `main.c` - main
+- `catalog.c` - loads stores, items and prices
+- `price.c` - calculates prices, shows the comparison and the shopping list
+- `recipes.c` - loads and shows the recipes
+- `terminal.c` - reading input and choosing recipe/store
+- `functions.h` - declarations and structs
+
+## Data
+
+The data is in text files in `backend/data/` (stores, items, prices, recipes, ingredients, instructions, replacements and address). The prices are made up by us, they are not real shelf prices. Prices are in øre.
+
+## Not done
+
+- stock (what you already have at home)
+- leaving out spices
+- swapping items
+
+## Known problems
+
+- budget max is 1000
+- only tested on Mac
+- if a data file is wrong it just says which line and stops

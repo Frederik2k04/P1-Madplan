@@ -1,136 +1,101 @@
-#include <stdio.h>
 #include "functions.h"
-#include "price.c"
+#include <stdio.h>
 
-/* Programmets start.
-   Første version bruger faste testtal. Ingen data hentes fra nettet. */
-
-    int main(void)
+int run_calculation(Item items[], Store stores[], Recipe recipes[])
 {
-    int budget_kr;
-    printf("Budget in whole kroner:");
-    if (scanf("%d", &budget_kr) !=1 ||
-    budget_kr < 0 || budget_kr > 10000) {
-        printf( "Write a whole number from 0 to 10.000.\n") ;
-            return 1;
-        }
-    int budget_cent = budget_kr * 100;
+int recipe_id;
+int budget_kr;
+int budget_cent;
+int store_id;
+int needed[MAX_ITEMS +1] = {0};
+int stock[MAX_ITEMS + 1] = {0};
+int totals[MAX_STORES + 1] = {0};
 
-    int need_rice = 150;
+recipe_id = choose_recipe(recipes);
+    if (recipe_id == -1) {
+        return -1;
+                }
+    if (recipe_id == 0) {
+        return 0;
+                }
+show_recipe(recipes[recipe_id], items);
 
-    int need_egg = 2;
-    int need_broccoli = 200;
+budget_kr = read_number("Budget in whole DKK (0..1000):", 0, 1000);
 
-    int stock_rice;
-        printf("rice home (gram): ");
-        if (scanf("%d", &stock_rice) !=1 ||
-     stock_rice < 0 || stock_rice > 100000) {
+if (budget_kr == -1) {
+return -1;
+                }
 
-        printf("Write a whole number from 0 to 10.000.\n");
-            return 1;
-     }
+budget_cent = budget_kr * 100;
 
-      int stock_egg;
-        printf("egg home (stk): ");
-        if (scanf("%d", &stock_egg) !=1 ||
-     stock_egg < 0 || stock_egg > 100000) {
+build_needs(recipes[recipe_id], needed);
 
-        printf("Write a whole number from 0 to 10.000.\n");
-            return 1;
-     }
+for (int id = 1; id <= MAX_STORES; id = id +1) {
+    totals [id] = calculate_store(items, needed, stock, id);
+                }
+show_comparison(stores, totals, budget_cent);
+store_id = choose_store(totals);
 
-      int stock_broccoli;
-        printf("broccoli home (gram): ");
-    if (scanf("%d", &stock_broccoli) !=1 ||
-     stock_broccoli < 0 || stock_broccoli > 100000) {
-
-        printf("skriv et helt tal fra 0 til 10.0000.\n");
-            return 1;
-     }
-
-
-    int req = missing_amount(need_rice, stock_rice);
-    int req_egg = missing_amount(need_egg, stock_egg);
-    int req_broccoli = missing_amount(need_broccoli, stock_broccoli);
-
-
-    int price = price_for_item(need_rice, stock_rice, 1000, 1800);
-    int price_egg = price_for_item(need_egg, stock_egg, 6, 1800);
-    int price_broccoli = price_for_item(need_broccoli, stock_broccoli, 500, 1500);
-
-        printf("\033[1mfoodplan - foundation with clear testdata\033[0m\n");
-        printf("Budget: %d kr.\n", budget_cent / 100);
-    
-    if(req == 0) {
-        printf("Rice: need %d g, home %d g. You have enough.\n",
-           need_rice, stock_rice);
-    } else {
-        printf("Rice: need %d g, home %d g, missing %d g. \n", 
-            need_rice, stock_rice, req);
-    }
-
-    if(req_egg == 0) {
-        printf("egg: need %d stk, home %d stk. you have enough.\n",
-           need_egg, stock_egg);
-    } else {
-        printf("egg: need %d stk, home %d stk, missing %d stk. \n", 
-            need_egg, stock_egg, req_egg);
-    }
-
-    if(req_broccoli == 0) {
-        printf("Broccoli: need %d g, home %d g. You have enough.\n",
-           need_broccoli, stock_broccoli);
-    } else {
-        printf("Broccoli: Need %d g, home %d g, missing %d g. \n", 
-            need_broccoli, stock_broccoli, req_broccoli);
-    }
-
-    
-
-    if (price < 0) {
-        printf("price is not calculated yet. Se TODO i c/pris.c.\n");
-    } else {
-        printf("buy rice: %d,%02d kr.\n", price / 100, price % 100);
-
-    }
-
-   if (price_egg < 0) {
-        printf("price is not calculated yet. Se TODO i c/pris.c.\n");
-    } else {
-        printf("buy Egg: %d,%02d kr.\n", price_egg / 100, price_egg % 100);
-    }
-
-    if (price_broccoli < 0) {
-        printf("price is not calculated yet. Se TODO i c/pris.c.\n");
-    } else {
-        printf("buy Broccoli: %d,%02d kr.\n", price_broccoli / 100, price_broccoli % 100);
-    }
-
-    if (price < 0 || price_egg < 0 || price_broccoli < 0) {
-
-        printf("Error: a price is missing. Total cannot be calculated\n");
-        return 1;
-    }
-
-    int total = price + price_egg + price_broccoli;
-        printf("Total: %d, %02d kr.\n", total / 100, total % 100);
-
-    if (total <= budget_cent) {
-    int left = budget_cent - total;
-        printf("Left of budget: %d, %02d kr.\n", left / 100, left % 100);
-    }
-
-    else {
-    int over = total - budget_cent;
-    printf("Over budget: %d, %02d kr.\n", over / 100, over % 100);
-
-    }
-
-
-
-    /* AK - lav én opgave ad gangen:
-       TODO 4: Vis kun total og restbudget, hvis alle priser er gyldige.
-               Vis også, hvis budgettet overskrides.
-       TODO 5 (senere): Skriv resultatet til HTML. Se README. */
+if (store_id == -1) {
+    return -1;
+                }
+if (store_id == 0) {
     return 0;
 }
+
+show_receipt(stores[store_id], items, needed, stock, store_id);
+    show_instructions(recipes[recipe_id]);
+
+    return 0;
+                }
+
+
+
+
+int main(void) {
+    Item items[MAX_ITEMS + 1] = {0};
+    Store stores[MAX_STORES + 1] = {0};
+    Recipe recipes[MAX_RECIPES + 1] = {0};
+    char address [160];
+    int result;
+
+if (load_stores (stores)== 0) {
+return 1;
+
+                }
+if (load_items(items) == 0) {
+        return 1;
+                }
+
+if (load_prices(items) == 0) {
+        return 1;
+                }
+
+if (load_recipes(recipes) == 0) {
+        return 1;
+                }
+
+if (load_ingredients(recipes) == 0) {
+        return 1;
+                }
+
+if (load_instructions(recipes) == 0) {
+        return 1;
+                }
+
+if (read_address(address) == 0) {
+        return 1;
+                }     
+show_context(stores, address);
+printf("All spices are included, Stock is currently 0\n");
+result = run_calculation(items, stores, recipes);
+
+if (result == -1) {
+    return 1;
+}
+
+return 0;
+
+                }
+
+

@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/macbookpro/Desktop/P1-Madplan/c",
-      "program": "/Users/macbookpro/Desktop/P1-Madplan/c/build/Release/outRelease"
+      "cwd": "/Users/macbookpro/Desktop/P1/P1-Madplan/backend/c",
+      "program": "/Users/macbookpro/Desktop/P1/P1-Madplan/backend/c/build/Debug/outDebug"
     }
   ]
 }

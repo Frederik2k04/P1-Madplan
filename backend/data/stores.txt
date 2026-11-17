@@ -1,0 +1,8 @@
+1 120 SuperBrugsen Halmtorvet
+Halmtorvet 25, 1700 København V
+
+2 280 Netto Skelbækgade
+Skelbækgade 2-4, 1717 København V
+
+3 350 Brugsen Vesterbros Torv
+Vesterbrogade 46, 1620 København V

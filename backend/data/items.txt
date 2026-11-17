@@ -1,0 +1,23 @@
+1 g 0 Pasta
+2 g 0 Minced beef
+3 g 0 Rice
+4 g 0 Chicken breast
+5 g 0 Broccoli
+6 ml 0 Soy sauce
+7 g 0 Cooked kidney beans
+8 g 0 Chopped tomatoes
+9 g 0 Onion
+10 pcs 0 Red bell pepper
+11 g 0 Canned sweetcorn
+12 ml 0 Rapeseed oil
+13 g 1 Salt
+14 g 1 Black pepper
+15 g 1 Paprika
+16 g 1 Ground cumin
+17 g 1 Chilli powder
+18 pcs 0 Romaine lettuce
+19 g 0 Croutons
+20 g 0 Parmesan
+21 ml 0 Ready-made Caesar dressing
+22 g 0 Wholewheat pasta
+23 g 0 Cooked black beans

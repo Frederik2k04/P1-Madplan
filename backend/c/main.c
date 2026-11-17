@@ -1,15 +1,18 @@
 #include "functions.h"
 #include <stdio.h>
 
+
 int run_calculation(Item items[], Store stores[], Recipe recipes[])
 {
 int recipe_id;
 int budget_kr;
+int include_spices;
 int budget_cent;
 int store_id;
 int needed[MAX_ITEMS +1] = {0};
 int stock[MAX_ITEMS + 1] = {0};
 int totals[MAX_STORES + 1] = {0};
+int again;
 
 recipe_id = choose_recipe(recipes);
     if (recipe_id == -1) {
@@ -28,7 +31,18 @@ return -1;
 
 budget_cent = budget_kr * 100;
 
-build_needs(recipes[recipe_id], needed);
+include_spices = read_number("Need to buy spices? (1 = yes, 0 = no)", 0, 1);
+if (include_spices == -1) {
+        return -1;
+                }
+if (include_spices == 0) {
+        printf ("Sprices assumed at home, not included in total price.\n");
+                }
+
+build_needs(recipes[recipe_id], items, include_spices, needed);
+if (read_stock(items, needed, stock) == 0) {
+        return -1;
+                }
 
 for (int id = 1; id <= MAX_STORES; id = id +1) {
     totals [id] = calculate_store(items, needed, stock, id);
@@ -41,12 +55,17 @@ if (store_id == -1) {
                 }
 if (store_id == 0) {
     return 0;
-}
+                }
 
 show_receipt(stores[store_id], items, needed, stock, store_id);
     show_instructions(recipes[recipe_id]);
 
-    return 0;
+again = read_number("Try again? (1 = yes, 0 = exit):", 0, 1);
+if (again == -1) {
+        return -1;
+                }
+return again;
+
                 }
 
 
@@ -87,12 +106,14 @@ if (read_address(address) == 0) {
         return 1;
                 }     
 show_context(stores, address);
-printf("All spices are included, Stock is currently 0\n");
-result = run_calculation(items, stores, recipes);
 
+result = 1;
+while (result == 1) {
+        result = run_calculation(items, stores, recipes);
+                }
 if (result == -1) {
     return 1;
-}
+                }
 
 return 0;
 

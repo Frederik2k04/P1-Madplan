@@ -162,3 +162,50 @@ values_read = fscanf(file, "%d %d %d %d", &item_id, &store_id, &package_amount, 
     return 1;
                 } 
 
+int load_replacements(Item items[]) {
+FILE *file;
+int number;
+int original_id = 0;
+int replacement_id = 0;
+int values_read;
+int entry_ok;
+
+file = fopen("backend/data/replacements.txt", "r");
+if (file == NULL) {
+printf("Cannot open Replacements.txt\n");
+return 0;
+                }
+number = 0;
+values_read = fscanf(file, "%d %d", &original_id, &replacement_id);
+while (values_read == 2) {
+    number = number +1;
+    entry_ok = 1;
+
+        if (original_id < 1 || original_id > MAX_ITEMS) {
+            entry_ok = 0;
+                }
+
+        if (replacement_id < 1 || replacement_id > MAX_ITEMS) {
+            entry_ok = 0;
+                }
+
+        if (entry_ok == 0) {
+            printf("Check entry %d in replacements.txt\n", number);
+            fclose(file);
+            return 0;
+                }
+    items[original_id].replacement_id = replacement_id;
+    values_read=fscanf(file, "%d %d", &original_id, &replacement_id);
+
+                    }
+                    
+        if (values_read !=EOF) {
+            printf("Check entry %d in replacements.txt\n", number +1);
+            fclose(file);
+            return 0;
+                }
+    fclose(file);
+    return 1;
+                
+
+                }

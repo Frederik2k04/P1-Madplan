@@ -173,21 +173,6 @@ void show_recipe(Recipe recipe, Item items[])
     }
 }
 
-void build_needs(Recipe recipe, int needed[])
-{
-    for (int item_id = 1; item_id <= MAX_ITEMS; item_id = item_id + 1) {
-        needed[item_id] = 0;
-    }
-    
-    for (int item_id = 1; item_id <= MAX_ITEMS; item_id = item_id + 1) {
-        int amount;
-        
-        amount = recipe.amount[item_id];
-
-        needed[item_id] = amount;
-    }
-}
-
 void show_instructions(Recipe recipe)
 {
     printf("\nCOOKING: %s\n", recipe.name);
@@ -196,3 +181,22 @@ void show_instructions(Recipe recipe)
     }
 }
 
+void build_needs(Recipe recipe, Item items[], int include_spices, int needed[])
+{
+for (int item_id = 1; item_id <= MAX_ITEMS; item_id = item_id + 1) {
+    needed[item_id] = 0;
+}
+ for (int item_id = 1; item_id <= MAX_ITEMS; item_id= item_id + 1) {
+    int amount;
+
+ amount = recipe.amount[item_id];
+
+ if (include_spices == 0) {
+    if (items[item_id].is_spice == 1) {
+        amount = 0;
+    }
+ }
+
+ needed[item_id] = amount;
+ }
+}

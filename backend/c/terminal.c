@@ -126,3 +126,25 @@ int choose_store(int totals[])
     return choice;
 }
 
+int read_stock(Item items[], int needed[], int stock[])
+{
+    printf("\nENTER FRESH PANTRY AMOUNTS\n");
+
+   for (int item_id = 1; item_id <= MAX_ITEMS; item_id = item_id +1) {
+    if (needed[item_id] > 0) {
+        int amount;
+
+        printf("%s: need %d %s\n", items[item_id].name,
+                needed[item_id], items[item_id].unit);
+        amount = read_number("Amount already at home (0..5000):", 0, 5000);
+
+        if (amount == -1) {
+            return 0;
+        }
+
+        stock[item_id] = amount;
+    }
+   }
+
+   return 1;
+}

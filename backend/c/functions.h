@@ -49,7 +49,7 @@ int load_ingredients(Recipe recipes[]);
 int load_instructions(Recipe recipes[]);
 int choose_recipe(Recipe recipes[]);
 void show_recipe (Recipe recipe, Item items[]);
-void build_needs(Recipe recipe, Item items[], int include_spices, int needed[]);
+void build_needs(Recipe recipe, Item items[], int include_spices, int selected_id[], int needed[]);
 int calculate_store(Item items[], int needed[], int stock[], int store_id);
 
 void show_comparison(Store stores[], int totals[], int budget_cent);
@@ -57,11 +57,13 @@ void show_comparison(Store stores[], int totals[], int budget_cent);
 int choose_store(int totals []);
 void show_receipt (Store store, Item items[], int needed[], int stock[], int store_id);
 
-void show_instructions(Recipe recipe);
+void show_instructions(Recipe recipe, Item items[], int selected_id[]);
 
 int read_stock(Item items[], int needed[], int stock[]);
 
 int load_replacements(Item items[]);
+
+int choose_replacements(Recipe recipe, Item items[], int include_spices, int selected_id[]);
 #endif
 
 

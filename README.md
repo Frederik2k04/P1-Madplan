@@ -19,6 +19,7 @@ It has to be run from this folder, or it cant find the data files.
 The program asks for:
 
 - recipe number (1-5)
+- how many people are eating (1-100)
 - budget in DKK (0-1000)
 - if you need to buy spices (1 = yes, 0 = no)
 - how much of each item you already have at home

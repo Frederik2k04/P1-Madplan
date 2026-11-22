@@ -148,3 +148,33 @@ int read_stock(Item items[], int needed[], int stock[])
 
    return 1;
 }
+
+int choose_replacements(Recipe recipe, Item items[], int include_spices, int selected_ids[])
+{
+    for (int item_id = 1; item_id <= MAX_ITEMS; item_id = item_id + 1) {
+        int replacement_id;
+
+        selected_ids[item_id] = item_id;
+        replacement_id = items[item_id].replacement_id;
+
+        if (recipe.amount[item_id] > 0 && replacement_id > 0) {
+            if (include_spices == 1 || items[item_id].is_spice == 0) {
+                int choice;
+
+                printf("\n%s can be replaced with %s, using the same amount.\n",
+                       items[item_id].name, items[replacement_id].name);
+                choice = read_number("Replace? (1 = yes, 0 = keep original):", 0, 1);
+
+                if (choice == -1) {
+                    return 0;
+                }
+
+                if (choice == 1) {
+                    selected_ids[item_id] = replacement_id;
+                }
+            }
+        }
+    }
+
+    return 1;
+}

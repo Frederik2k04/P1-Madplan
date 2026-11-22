@@ -16,10 +16,12 @@ It has to be run from this folder, or it cant find the data files.
 
 ## How to use it
 
-The program asks for three things:
+The program asks for:
 
 - recipe number (1-5)
 - budget in DKK (0-1000)
+- if you need to buy spices (1 = yes, 0 = no)
+- how much of each item you already have at home
 - store number (1-3)
 
 Type 0 to quit. If a store is missing a price you cant choose it.
@@ -43,9 +45,7 @@ The data is in text files in `backend/data/` (stores, items, prices, recipes, in
 
 ## Not done
 
-- stock (what you already have at home)
-- leaving out spices
-- swapping items
+- swapping items (the code is written but not connected yet)
 
 ## Known problems
 

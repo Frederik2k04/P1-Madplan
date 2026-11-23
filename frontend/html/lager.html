@@ -1,14 +1,12 @@
-<!doctype html>
+<body>
+  <!doctype html>
 <html lang="da">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hjemmelager - Madplan</title>
-  
+  <link rel="stylesheet" href="style.css">
 </head>
-
-<body style="background-color: lightgreen;">
-
   <nav aria-label="Hovedmenu">
     <a href="index.html">Forside</a> |
     <a href="opskrift.html">Opskrift</a> |
@@ -17,27 +15,50 @@
   </nav>
 
   <main>
+    <section class="lager-header">
+      <div>
+        <p class="lager-kategori">Hjemmelager</p>
+        <h1>Mit lager</h1>
+        <p>Her kan du få overblik over, hvad du har hjemme.</p>
+      </div>
 
-    <h1>Mit hjemmelager</h1>
-    <p><strong>Fast eksempel:</strong> Denne side viser kun idéen. Intet gemmes her.</p>
-    <p>I første version skal budget og hjemmelager indtastes i C-programmets terminal.</p>
-    <h2>Eksempel på det, jeg har hjemme</h2>
+      <div class="budget">
+        <span>Budget</span>
+        <strong>60 kr.</strong>
+      </div>
+    </section>
 
-    <ul>
+    <section class="lager-kort">
+      <h2>Mine varer</h2>
 
-      <li>Ris: 100 g</li>
-      <li>Æg: 1 stk.</li>
-      <li>Broccoli: 0 g</li>
+      <div class="vare">
+        <div>
+          <h3>Ris</h3>
+          <p>Hjemmelager</p>
+        </div>
+        <strong>100 g</strong>
+      </div>
 
-    </ul>
+      <div class="vare">
+        <div>
+          <h3>Æg</h3>
+          <p>Hjemmelager</p>
+        </div>
+        <strong>1 stk.</strong>
+      </div>
 
-    <p>Budget i eksemplet: 60 kr.</p>
-    <!-- HASIBULLAH - TODO 1: Tilpas oversigten, så den er let at forstå.
-         TODO 2: Hold tallene ens med data/varer.txt.
-         TODO 3: Hjælp med at prøve opstartsvejledningen.
-         Browserinput og gemmeknapper kræver en senere forbindelse til C. -->
+      <div class="vare vare-tom">
+        <div>
+          <h3>Broccoli</h3>
+          <p>Ikke på lager</p>
+        </div>
+        <strong>0 g</strong>
+      </div>
+    </section>
 
+    <p class="lager-info">
+      <strong>Bemærk:</strong> Oversigten er et eksempel. Lager og budget gemmes ikke i browseren.
+    </p>
   </main>
-
 </body>
 </html>

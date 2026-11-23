@@ -173,26 +173,49 @@ void show_recipe(Recipe recipe, Item items[])
     }
 }
 
-void build_needs(Recipe recipe, int needed[])
+void show_instructions(Recipe recipe, Item items[], int selected_ids[])
 {
-    for (int item_id = 1; item_id <= MAX_ITEMS; item_id = item_id + 1) {
-        needed[item_id] = 0;
-    }
-    
-    for (int item_id = 1; item_id <= MAX_ITEMS; item_id = item_id + 1) {
-        int amount;
-        
-        amount = recipe.amount[item_id];
+    printf("\nINGREDIENT CHANGES\n");
 
-        needed[item_id] = amount;
-    }
-}
+    for (int item_id = 1; item_id <= MAX_ITEMS; item_id = item_id + 1) {
+        if (recipe.amount[item_id] > 0) {
+            int selected_id;
 
-void show_instructions(Recipe recipe)
-{
+            selected_id = selected_ids[item_id];
+
+            if (selected_id != item_id) {
+                printf("Use %d %s %s instead of %s.\n", recipe.amount[item_id],
+                       items[selected_id].unit, items[selected_id].name, items[item_id].name);
+            }
+        }
+    }
+
     printf("\nCOOKING: %s\n", recipe.name);
+
     for (int step = 1; step <= recipe.instruction_count; step = step + 1) {
         printf("%d. %s\n", step, recipe.instructions[step]);
     }
 }
 
+void build_needs(Recipe recipe, Item items[], int include_spices, int selected_ids[], int needed[])
+{
+for (int item_id = 1; item_id <= MAX_ITEMS; item_id = item_id + 1) {
+    needed[item_id] = 0;
+}
+ for (int item_id = 1; item_id <= MAX_ITEMS; item_id= item_id + 1) {
+    int amount;
+
+ amount = recipe.amount[item_id];
+
+ if (include_spices == 0) {
+    if (items[item_id].is_spice == 1) {
+        amount = 0;
+    }
+ }
+
+ int final_id;
+
+ final_id = selected_ids[item_id];
+ needed[final_id] = needed[final_id] + amount;
+ }
+}

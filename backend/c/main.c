@@ -6,7 +6,7 @@
 #include "catalog.c"
 
 
-// Gør så "kr" er accepteret. + budget printf
+// Gør så "kr" er accepteret. + budget printf + errorcodes.
 int read_budget(int maximum)
 {
     int number;

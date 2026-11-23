@@ -8,7 +8,7 @@ Double-click `start/Start.command` on a Mac.
 
 Or run this in the terminal from this folder (the one with `backend` in it):
 
-```sh
+```
 mkdir -p backend/c/output && cc -std=c11 -Wall -Wextra -Wpedantic -Werror backend/c/main.c backend/c/catalog.c backend/c/recipes.c backend/c/price.c backend/c/terminal.c -o backend/c/output/mealplan && ./backend/c/output/mealplan
 ```
 

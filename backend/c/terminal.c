@@ -88,7 +88,7 @@ int choose_recipe(Recipe recipes[])
 {
     int choice;
 
-    printf("\nCHOOSE A RECIPE FOR 2 PEOPLE\n");
+    printf("\nCHOOSE A RECIPE\n");
 
 
     for (int recipe_id = 1; recipe_id <= MAX_RECIPES; recipe_id = recipe_id + 1){
@@ -119,7 +119,7 @@ int choose_store(int totals[])
     }
 
     if (totals[choice] == -1) {
-        printf("that store is missing a required price. calculation has stopped\n");
+        printf("that store is missing a required price. program closed\n");
         return -1;
     }
 
@@ -136,7 +136,7 @@ int read_stock(Item items[], int needed[], int stock[])
 
         printf("%s: need %d %s\n", items[item_id].name,
                 needed[item_id], items[item_id].unit);
-        amount = read_number("Amount already at home (0..5000):", 0, 5000);
+        amount = read_number("Amount already at home (0..100.000):", 0, 100000);
 
         if (amount == -1) {
             return 0;

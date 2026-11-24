@@ -32,3 +32,31 @@ else()
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
         USES_TERMINAL)
 endif()
+
+find_package(Python3 3.0...<3.15 COMPONENTS Interpreter)
+
+add_executable(web_cgi backend/c/web.c)
+set_target_properties(web_cgi PROPERTIES
+    OUTPUT_NAME mealplan
+    SUFFIX ".cgi"
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/cgi-bin)
+if(Python3_FOUND)
+    add_custom_target(web
+        COMMAND ${Python3_EXECUTABLE} -m http.server --cgi 8000
+        DEPENDS web_cgi
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+        USES_TERMINAL)
+else()
+    add_custom_target(web
+        COMMAND ${CMAKE_COMMAND} -E echo "The web version needs Python 3.0 to 3.14. Python 3.15 removed the CGI server."
+        DEPENDS web_cgi)
+endif()
+
+if(EXISTS ${CMAKE_SOURCE_DIR}/backend/c/stock.c)
+    add_executable(stock_cgi backend/c/stock.c)
+    set_target_properties(stock_cgi PROPERTIES
+        OUTPUT_NAME stock
+        SUFFIX ".cgi"
+        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/cgi-bin)
+    add_dependencies(web stock_cgi)
+endif()

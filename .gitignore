@@ -10,3 +10,5 @@ data/opskrift.json
 /backend/c/main
 *.o
 *.dSYM/
+backend/data/stock.txt
+cgi-bin/*.cgi

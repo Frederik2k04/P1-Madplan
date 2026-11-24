@@ -7,10 +7,10 @@ P1 project, 1st semester. A small C program for the terminal. You pick a recipe 
 You need CMake and a C compiler. Run this in the terminal from this folder (the one with `CMakeLists.txt` in it). It builds the program and starts it:
 
 ```
-cmake -S . -B build && cmake --build build --target run
+cmake -S . -B build; cmake --build build --target run
 ```
 
-It has to be run from this folder, or the program cant find the data files.
+It has to be run from this folder, or the program cant find the data files. On Windows the program opens in its own window.
 
 ## How to use it
 
@@ -18,7 +18,7 @@ The program asks for:
 
 - recipe number (1-5)
 - how many people are eating (1-100)
-- budget in DKK (0-1000)
+- budget in DKK (0-10000)
 - if you need to buy spices (1 = yes, 0 = no)
 - how much of each item you already have at home
 - store number (1-3)
@@ -42,12 +42,7 @@ All in `backend/c/`:
 
 The data is in text files in `backend/data/` (stores, items, prices, recipes, ingredients, instructions, replacements and address). The prices are made up by us, they are not real shelf prices. Prices are in øre.
 
-## Not done
-
-- swapping items (the code is written but not connected yet)
-
 ## Known problems
 
-- budget max is 1000
 - only tested on Mac
 - if a data file is wrong it just says which line and stops

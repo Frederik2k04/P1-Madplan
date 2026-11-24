@@ -17,7 +17,7 @@ int read_budget(int maximum)
     valid = 0;
 
     while (valid == 0) {
-        printf("Your budget in DKK:\n");
+        printf("\033[1mYour budget in DKK:\33[0m\n");
         values_read = scanf("%d", &number);
 
         if (values_read == EOF) {

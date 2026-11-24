@@ -1,6 +1,6 @@
 {
   "code-runner.executorMap": {
-    "c": "cd \"$workspaceRoot\" && cmake -S . -B build && cmake --build build --target run"
+    "c": "cd \"$workspaceRoot\" && cmake -S . -B build; cmake --build build --target run"
   },
   "c-cpp-compile-run.custom-run-prefix": "sh -c 'p=$(pwd)/$0; cd ../../.. && exec \"$p\"'",
   "code-runner.runInTerminal": true,

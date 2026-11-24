@@ -10,7 +10,11 @@ add_executable(mealplan
     backend/c/price.c
     backend/c/terminal.c)
 
-target_compile_options(mealplan PRIVATE -Wall -Wextra -Wpedantic -Werror)
+if(MSVC)
+    target_compile_options(mealplan PRIVATE /W4)
+else()
+    target_compile_options(mealplan PRIVATE -Wall -Wextra -Wpedantic -Werror)
+endif()
 
 add_custom_target(run
     COMMAND mealplan

@@ -4,7 +4,7 @@
         {
             "label": "Build and run mealplan",
             "type": "shell",
-            "command": "cmake -S . -B build && cmake --build build --target run",
+            "command": "cmake -S . -B build; cmake --build build --target run",
             "options": {
                 "cwd": "${workspaceFolder}"
             },

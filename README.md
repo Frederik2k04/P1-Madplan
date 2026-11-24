@@ -7,10 +7,10 @@ P1 project, 1st semester. A small C program for the terminal. You pick a recipe 
 You need CMake and a C compiler. Run this in the terminal from this folder (the one with `CMakeLists.txt` in it). It builds the program and starts it:
 
 ```
-cmake -S . -B build && cmake --build build --target run
+cmake -S . -B build; cmake --build build --target run
 ```
 
-It has to be run from this folder, or the program cant find the data files.
+It has to be run from this folder, or the program cant find the data files. On Windows the program opens in its own window.
 
 ## How to use it
 

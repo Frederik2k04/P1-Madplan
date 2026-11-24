@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/macbookpro/Desktop/P1/P1-Madplan/backend/c",
-      "program": "/Users/macbookpro/Desktop/P1/P1-Madplan/backend/c/build/Debug/outDebug"
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/build/mealplan"
     }
   ]
 }

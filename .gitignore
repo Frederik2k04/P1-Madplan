@@ -6,5 +6,7 @@ data/opskrift.json
 # New local build products. Existing tracked files are left unchanged.
 .DS_Store
 /backend/c/output/
+/build/
+/backend/c/main
 *.o
 *.dSYM/

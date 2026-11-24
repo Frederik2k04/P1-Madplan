@@ -1,9 +1,5 @@
 #include "functions.h"
 #include <stdio.h>
-#include "price.c"
-#include "recipes.c"
-#include "terminal.c"
-#include "catalog.c"
 
 
 // Gør så "kr" er accepteret. + budget printf + errorcodes.

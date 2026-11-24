@@ -1,6 +1,6 @@
 {
   "code-runner.executorMap": {
-    "c": "cd \"$workspaceRoot\" && mkdir -p backend/c/output && cc -std=c11 -Wall -Wextra -Wpedantic -Werror backend/c/main.c -o backend/c/output/mealplan && ./backend/c/output/mealplan"
+    "c": "cd \"$workspaceRoot\" && cmake -S . -B build && cmake --build build --target run"
   },
   "c-cpp-compile-run.custom-run-prefix": "sh -c 'p=$(pwd)/$0; cd ../../.. && exec \"$p\"'",
   "code-runner.runInTerminal": true,

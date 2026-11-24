@@ -58,8 +58,7 @@ void show_context(Store stores[], char address[]) {
     printf("%s\n", stores[store_id].address);
     printf("Saved walking distance: %d m\n", stores[store_id].walking_meters);
                 }
-    printf("Water is assumed available at home\n");
-                } 
+              } 
 
 int load_items(Item items[]) {
 FILE *file;

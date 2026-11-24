@@ -4,15 +4,13 @@ P1 project, 1st semester. A small C program for the terminal. You pick a recipe 
 
 ## Run it
 
-Double-click `start/Start.command` on a Mac.
-
-Or run this in the terminal from this folder (the one with `backend` in it):
+You need CMake and a C compiler. Run this in the terminal from this folder (the one with `CMakeLists.txt` in it). It builds the program and starts it:
 
 ```
-mkdir -p backend/c/output && cc -std=c11 -Wall -Wextra -Wpedantic -Werror backend/c/main.c backend/c/catalog.c backend/c/recipes.c backend/c/price.c backend/c/terminal.c -o backend/c/output/mealplan && ./backend/c/output/mealplan
+cmake -S . -B build && cmake --build build --target run
 ```
 
-It has to be run from this folder, or it cant find the data files.
+It has to be run from this folder, or the program cant find the data files.
 
 ## How to use it
 

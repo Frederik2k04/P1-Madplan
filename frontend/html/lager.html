@@ -1,4 +1,4 @@
-<body>
+
   <!doctype html>
 <html lang="da">
 <head>
@@ -7,6 +7,7 @@
   <title>Hjemmelager - Madplan</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<body>
   <nav aria-label="Hovedmenu">
     <a href="index.html">Forside</a> |
     <a href="opskrift.html">Opskrift</a> |
@@ -56,8 +57,67 @@
       </div>
     </section>
 
+<section class="lager-kort">
+  <details class="lager-dropdown">
+    <summary>Opdater mit lager</summary>
+<form class="lager-form" action="/cgi-bin/stock.cgi" method="get" target="saved">
+<label>Pasta (g) <input name="1" type="number" min="0" max="100000"
+value="0"></label>
+<label>Hakket oksekød (g) <input name="2" type="number" min="0"
+max="100000" value="0"></label>
+<label>Ris (g) <input name="3" type="number" min="0" max="100000"
+value="0"></label>
+<label>Kyllingebryst (g) <input name="4" type="number" min="0"
+max="100000" value="0"></label>
+<label>Broccoli (g) <input name="5" type="number" min="0"
+max="100000" value="0"></label>
+<label>Sojasauce (ml) <input name="6" type="number" min="0"
+max="100000" value="0"></label>
+<label>Kidneybønner (kogte) (g) <input name="7" type="number" min="0"
+max="100000" value="0"></label>
+<label>Hakkede tomater (g) <input name="8" type="number" min="0"
+  max="100000" value="0"></label>
+<label>Løg (g) <input name="9" type="number" min="0" max="100000"
+value="0"></label>
+<label>Rød peberfrugt (stk.) <input name="10" type="number" min="0"
+max="100000" value="0"></label>
+<label>Majs (dåse) (g) <input name="11" type="number" min="0"
+max="100000" value="0"></label>
+<label>Rapsolie (ml) <input name="12" type="number" min="0"
+max="100000" value="0"></label>
+<label>Salt (g) <input name="13" type="number" min="0" max="100000"
+value="0"></label>
+<label>Sort peber (g) <input name="14" type="number" min="0"
+max="100000" value="0"></label>
+<label>Paprika (g) <input name="15" type="number" min="0"
+max="100000" value="0"></label>
+<label>Spidskommen (g) <input name="16" type="number" min="0"
+max="100000" value="0"></label>
+<label>Chilipulver (g) <input name="17" type="number" min="0"
+max="100000" value="0"></label>
+<label>Romainesalat (stk.) <input name="18" type="number" min="0"
+max="100000" value="0"></label>
+<label>Croutoner (g) <input name="19" type="number" min="0"
+max="100000" value="0"></label>
+<label>Parmesan (g) <input name="20" type="number" min="0"
+max="100000" value="0"></label>
+<label>Caesar-dressing (ml) <input name="21" type="number" min="0"
+max="100000" value="0"></label>
+<label>Fuldkornspasta (g) <input name="22" type="number" min="0"
+max="100000" value="0"></label>
+<label>Sorte bønner (kogte) (g) <input name="23" type="number"
+min="0" max="100000" value="0"></label>
+<button type="submit">Gem</button>
+</form>
+<iframe name="saved" title="Gemt lager" width="100%" height="250">
+</iframe>
+</details>
+</section>
+
+
     <p class="lager-info">
-      <strong>Bemærk:</strong> Oversigten er et eksempel. Lager og budget gemmes ikke i browseren.
+      "Tryk Gem for at gemme dit lager. Det bliver brugt automatisk, når du beregner
+       indkøb på Resultat-siden."
     </p>
   </main>
 </body>

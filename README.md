@@ -12,6 +12,18 @@ cmake -S . -B build; cmake --build build --target run
 
 It has to be run from this folder, or the program cant find the data files. On Windows the program opens in its own window.
 
+## Web version
+
+Run this in the terminal from the project folder:
+
+```
+cmake -S . -B build; cmake --build build --target web
+```
+
+Then open `http://localhost:8000/frontend/html/resultat.html` in the browser. Close the terminal (or press Ctrl+C) to stop the server.
+
+Input is limited in this version: there is no home storage in the calculation yet, and no replacements.
+
 ## How to use it
 
 The program asks for:

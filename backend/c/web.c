@@ -6,6 +6,29 @@
 #include "terminal.c"
 #include "catalog.c"
 
+int load_stock(int stock[])
+{
+FILE *file;
+    int item_id;
+    int amount;
+
+    file = fopen("backend/data/stock.txt", "r");
+
+    if (file == NULL) {
+        return 1;
+    }
+
+    while (fscanf(file, "%d %d", &item_id, &amount) == 2) {
+        if (item_id >= 1 && item_id <= MAX_ITEMS) {
+            stock[item_id] = amount;
+        }
+    }
+
+    fclose(file);
+
+    return 1;
+            }
+
 int main (void) {
 int recipe_id = 0;
 int people = 0;
@@ -64,6 +87,7 @@ for (int item_id = 1; item_id <=MAX_ITEMS; item_id = item_id + 1) {
     needed[item_id] = (needed[item_id] * people + 1) / 2;
             }
 budget_cent = budget_kr * 100;
+load_stock(stock);
 
 printf("<h2>%s - %d people</h2>\n", recipes[recipe_id].name, people);
 

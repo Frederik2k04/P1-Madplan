@@ -10,11 +10,22 @@ add_executable(mealplan
     backend/c/price.c
     backend/c/terminal.c)
 
+target_compile_options(mealplan PRIVATE -Wall -Wextra -Wpedantic -Werror)
+
+add_custom_target(run
+    COMMAND mealplan
+    DEPENDS mealplan
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    USES_TERMINAL)
+     backend/c/price.c
+    backend/c/terminal.c)
+
 if(MSVC)
     target_compile_options(mealplan PRIVATE /W4)
 else()
     target_compile_options(mealplan PRIVATE -Wall -Wextra -Wpedantic -Werror)
 endif()
+target_compile_options(mealplan PRIVATE -Wall -Wextra -Wpedantic -Werror)
 
 if(WIN32)
     string(REPLACE "/" "\\" SOURCE_DIR_WIN "${CMAKE_SOURCE_DIR}")
@@ -60,3 +71,8 @@ if(EXISTS ${CMAKE_SOURCE_DIR}/backend/c/stock.c)
         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/cgi-bin)
     add_dependencies(web stock_cgi)
 endif()
+add_custom_target(run
+    COMMAND mealplan
+    DEPENDS mealplan
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    USES_TERMINAL)

@@ -1,123 +1,173 @@
 
-  <!doctype html>
-<html lang="da">
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hjemmelager - Madplan</title>
+  <title>Homestorage - Meal Planner</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav aria-label="Hovedmenu">
-    <a href="index.html">Forside</a> |
-    <a href="opskrift.html">Opskrift</a> |
-    <a href="lager.html">Hjemmelager</a> |
-    <a href="resultat.html">Resultat</a>
+  <nav aria-label="Main menu">
+    <a href="index.html">Homepage</a>
+    <a href="opskrift.html">Recipes</a>
+    <a href="lager.html">Homestorage</a>
+    <a href="resultat.html">Result</a>
   </nav>
 
   <main>
     <section class="lager-header">
       <div>
-        <p class="lager-kategori">Hjemmelager</p>
-        <h1>Mit lager</h1>
-        <p>Her kan du få overblik over, hvad du har hjemme.</p>
+        <p class="lager-kategori">Homestorage</p>
+        <h1>My storage</h1>
+        <p>Here you can keep track of what you have at home.</p>
       </div>
 
       <div class="budget">
         <span>Budget</span>
-        <strong>60 kr.</strong>
+        <strong>60 DKK</strong>
       </div>
     </section>
 
     <section class="lager-kort">
-      <h2>Mine varer</h2>
+      <h2>My ingredients</h2>
 
       <div class="vare">
         <div>
-          <h3>Ris</h3>
-          <p>Hjemmelager</p>
+          <h3>Rice</h3>
+          <p>In stock</p>
         </div>
         <strong>100 g</strong>
       </div>
 
       <div class="vare">
         <div>
-          <h3>Æg</h3>
-          <p>Hjemmelager</p>
+          <h3>Eggs</h3>
+          <p>In stock</p>
         </div>
-        <strong>1 stk.</strong>
+        <strong>1 pc.</strong>
       </div>
 
       <div class="vare vare-tom">
         <div>
           <h3>Broccoli</h3>
-          <p>Ikke på lager</p>
+          <p>Out of stock</p>
         </div>
         <strong>0 g</strong>
       </div>
     </section>
 
-<section class="lager-kort">
-  <details class="lager-dropdown">
-    <summary>Opdater mit lager</summary>
-<form class="lager-form" action="/cgi-bin/stock.cgi" method="get" target="saved">
-<label>Pasta (g) <input name="1" type="number" min="0" max="100000"
-value="0"></label>
-<label>Hakket oksekød (g) <input name="2" type="number" min="0"
-max="100000" value="0"></label>
-<label>Ris (g) <input name="3" type="number" min="0" max="100000"
-value="0"></label>
-<label>Kyllingebryst (g) <input name="4" type="number" min="0"
-max="100000" value="0"></label>
-<label>Broccoli (g) <input name="5" type="number" min="0"
-max="100000" value="0"></label>
-<label>Sojasauce (ml) <input name="6" type="number" min="0"
-max="100000" value="0"></label>
-<label>Kidneybønner (kogte) (g) <input name="7" type="number" min="0"
-max="100000" value="0"></label>
-<label>Hakkede tomater (g) <input name="8" type="number" min="0"
-  max="100000" value="0"></label>
-<label>Løg (g) <input name="9" type="number" min="0" max="100000"
-value="0"></label>
-<label>Rød peberfrugt (stk.) <input name="10" type="number" min="0"
-max="100000" value="0"></label>
-<label>Majs (dåse) (g) <input name="11" type="number" min="0"
-max="100000" value="0"></label>
-<label>Rapsolie (ml) <input name="12" type="number" min="0"
-max="100000" value="0"></label>
-<label>Salt (g) <input name="13" type="number" min="0" max="100000"
-value="0"></label>
-<label>Sort peber (g) <input name="14" type="number" min="0"
-max="100000" value="0"></label>
-<label>Paprika (g) <input name="15" type="number" min="0"
-max="100000" value="0"></label>
-<label>Spidskommen (g) <input name="16" type="number" min="0"
-max="100000" value="0"></label>
-<label>Chilipulver (g) <input name="17" type="number" min="0"
-max="100000" value="0"></label>
-<label>Romainesalat (stk.) <input name="18" type="number" min="0"
-max="100000" value="0"></label>
-<label>Croutoner (g) <input name="19" type="number" min="0"
-max="100000" value="0"></label>
-<label>Parmesan (g) <input name="20" type="number" min="0"
-max="100000" value="0"></label>
-<label>Caesar-dressing (ml) <input name="21" type="number" min="0"
-max="100000" value="0"></label>
-<label>Fuldkornspasta (g) <input name="22" type="number" min="0"
-max="100000" value="0"></label>
-<label>Sorte bønner (kogte) (g) <input name="23" type="number"
-min="0" max="100000" value="0"></label>
-<button type="submit">Gem</button>
-</form>
-<iframe name="saved" title="Gemt lager" width="100%" height="250">
-</iframe>
-</details>
-</section>
+    <section class="lager-kort">
+      <details class="lager-dropdown">
+        <summary>Update my storage</summary>
 
+        <form class="lager-form" action="/cgi-bin/stock.cgi" method="get" target="saved">
+
+          <label>Pasta (g)
+            <input name="1" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Minced beef (g)
+            <input name="2" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Rice (g)
+            <input name="3" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Chicken breast (g)
+            <input name="4" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Broccoli (g)
+            <input name="5" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Soy sauce (ml)
+            <input name="6" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Kidney beans, cooked (g)
+            <input name="7" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Chopped tomatoes (g)
+            <input name="8" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Onions (g)
+            <input name="9" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Red bell pepper (pcs.)
+            <input name="10" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Canned corn (g)
+            <input name="11" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Rapeseed oil (ml)
+            <input name="12" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Salt (g)
+            <input name="13" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Black pepper (g)
+            <input name="14" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Paprika (g)
+            <input name="15" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Cumin (g)
+            <input name="16" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Chili powder (g)
+            <input name="17" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Romaine lettuce (pcs.)
+            <input name="18" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Croutons (g)
+            <input name="19" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Parmesan (g)
+            <input name="20" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Caesar dressing (ml)
+            <input name="21" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Whole wheat pasta (g)
+            <input name="22" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <label>Black beans, cooked (g)
+            <input name="23" type="number" min="0" max="100000" value="0">
+          </label>
+
+          <button type="submit">Save</button>
+        </form>
+
+        <iframe name="saved" title="Saved storage" width="100%" height="250">
+        </iframe>
+
+      </details>
+    </section>
 
     <p class="lager-info">
-      "Tryk Gem for at gemme dit lager. Det bliver brugt automatisk, når du beregner
-       indkøb på Resultat-siden."
+      Click Save to save your storage. Your available ingredients
+      will automatically be taken into account when calculating
+      your shopping list on the Result page.
     </p>
   </main>
 </body>

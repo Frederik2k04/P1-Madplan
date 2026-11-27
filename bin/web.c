@@ -1,10 +1,6 @@
 #include "functions.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "price.c"
-#include "recipes.c"
-#include "terminal.c"
-#include "catalog.c"
 
 int load_stock(int stock[])
 {
@@ -12,7 +8,7 @@ FILE *file;
     int item_id;
     int amount;
 
-    file = fopen("backend/data/stock.txt", "r");
+    file = fopen("data/stock.txt", "r");
 
     if (file == NULL) {
         return 1;

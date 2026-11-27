@@ -1,0 +1,33 @@
+Dette er guiden til hvordan man starter programmet med cmake
+
+
+For at bygge projektetet med cmake starter man med at cd ind til projektet. Nedeunder er min som eksempel
+Trin 1:
+cd "/Users/freddyos/Library/CloudStorage/OneDrive2-AalborgUniversitet/AAU/1 semester/Software Hold 2026/P1/produkt"
+
+
+Så for faktisk at bygge projektet mappen skriver man
+Trin 2: 	cmake -S . -B build
+
+
+Så for faktisk at bygge projektet skriver man
+Trin 3: 	cmake --build build
+
+
+Nu er projektet bygget med cmake, og burde virke på alle computere, Mac, linux, windows. For nu at starte programmet i c eller for at starte webserveren, så skriv
+Mac
+Trin 4 C: 		
+./build/bin/mealplan
+	
+
+Windows
+Trin 4 C: 		build\bin\mealplan.exe
+Trin 4 c Vs code:	build\bin\Debug\mealplan.exe
+
+
+Start server
+Trin 5: 		cmake --build build --target web
+
+
+Åben hjemmeside
+Trin 6 : 		http://localhost:8000/web/index.html

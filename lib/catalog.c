@@ -9,9 +9,9 @@ int load_stores(Store stores[])
     int values_read;
     int entry_ok;
 
-    file = fopen("backend/data/stores.txt", "r");
+    file = fopen("data/stores.txt", "r");
     if (file == NULL) {
-        printf("cannot open backend/data/stores.txt. please try again \n");
+        printf("cannot open data/stores.txt. please try again \n");
         return 0;
                 }
     number = 0;
@@ -68,10 +68,10 @@ int values_read;
 int entry_ok;
 
     file =
-    fopen("backend/data/items.txt", "r");
+    fopen("data/items.txt", "r");
 
     if (file == NULL) {
-        printf("Cannot open backend/data/items.txt. Please try again.\n");
+        printf("Cannot open data/items.txt. Please try again.\n");
         return 0;
                 }
     number = 0;
@@ -114,10 +114,10 @@ int price_cent;
 int values_read;
 int entry_ok;
 
-file = fopen("backend/data/prices.txt", "r");
+file = fopen("data/prices.txt", "r");
 
     if (file == NULL) {
-        printf("Cannot open backend/data/prices.txt. Please try again.\n");
+        printf("Cannot open data/prices.txt. Please try again.\n");
         return 0;
                 }
 
@@ -169,7 +169,7 @@ int replacement_id = 0;
 int values_read;
 int entry_ok;
 
-file = fopen("backend/data/replacements.txt", "r");
+file = fopen("data/replacements.txt", "r");
 if (file == NULL) {
 printf("Cannot open Replacements.txt\n");
 return 0;

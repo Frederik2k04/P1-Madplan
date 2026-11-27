@@ -66,10 +66,10 @@ int read_address(char address[])
     FILE *file;
     int text_ok;
 
-    file = fopen("backend/data/address.txt", "r");
+    file = fopen("data/address.txt", "r");
 
     if (file == NULL) {
-        printf("Cannot open backend/data/address.txt.\n");
+        printf("Cannot open data/address.txt.\n");
         return 0;
     }
 

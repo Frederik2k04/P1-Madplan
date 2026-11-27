@@ -1,8 +1,6 @@
 #include "functions.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "catalog.c"
-#include "terminal.c"
 
 int main(void)
 {
@@ -37,7 +35,7 @@ int main(void)
         }
     }
 
-    file = fopen("backend/data/stock.txt", "w");
+    file = fopen("data/stock.txt", "w");
 
     if (file == NULL) {
         printf("<p>The home storage could not be saved.</p>\n");

@@ -3,60 +3,18 @@ project(mealplan C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(mealplan
-    backend/c/main.c
-    backend/c/catalog.c
-    backend/c/recipes.c
-    backend/c/price.c
-    backend/c/terminal.c)
+add_subdirectory(lib)
+add_subdirectory(bin)
 
-if(MSVC)
-    target_compile_options(mealplan PRIVATE /W4)
-else()
-    target_compile_options(mealplan PRIVATE -Wall -Wextra -Wpedantic -Werror)
-endif()
-
-if(WIN32)
-    string(REPLACE "/" "\\" SOURCE_DIR_WIN "${CMAKE_SOURCE_DIR}")
-    string(REPLACE "/" "\\" RUN_BAT_WIN "${CMAKE_BINARY_DIR}/run_$<CONFIG>.bat")
-    file(GENERATE OUTPUT "${CMAKE_BINARY_DIR}/run_$<CONFIG>.bat"
-        CONTENT "@echo off\r\nchcp 65001 >nul\r\ncd /d \"${SOURCE_DIR_WIN}\"\r\n\"$<TARGET_FILE:mealplan>\"\r\npause\r\n")
-    add_custom_target(run
-        COMMAND cmd /c start "" /wait "${RUN_BAT_WIN}"
-        DEPENDS mealplan
-        VERBATIM)
-else()
-    add_custom_target(run
-        COMMAND mealplan
-        DEPENDS mealplan
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-        USES_TERMINAL)
-endif()
+add_custom_target(run
+    COMMAND mealplan
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    USES_TERMINAL)
 
 find_package(Python3 3.0...<3.15 COMPONENTS Interpreter)
 
-add_executable(web_cgi backend/c/web.c)
-set_target_properties(web_cgi PROPERTIES
-    OUTPUT_NAME mealplan
-    SUFFIX ".cgi"
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/cgi-bin)
-if(Python3_FOUND)
-    add_custom_target(web
-        COMMAND ${Python3_EXECUTABLE} -m http.server --cgi 8000
-        DEPENDS web_cgi
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-        USES_TERMINAL)
-else()
-    add_custom_target(web
-        COMMAND ${CMAKE_COMMAND} -E echo "The web version needs Python 3.0 to 3.14. Python 3.15 removed the CGI server."
-        DEPENDS web_cgi)
-endif()
-
-if(EXISTS ${CMAKE_SOURCE_DIR}/backend/c/stock.c)
-    add_executable(stock_cgi backend/c/stock.c)
-    set_target_properties(stock_cgi PROPERTIES
-        OUTPUT_NAME stock
-        SUFFIX ".cgi"
-        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/cgi-bin)
-    add_dependencies(web stock_cgi)
-endif()
+add_custom_target(web
+    COMMAND ${Python3_EXECUTABLE} -m http.server --cgi 8000
+    DEPENDS web_cgi stock_cgi
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    USES_TERMINAL)

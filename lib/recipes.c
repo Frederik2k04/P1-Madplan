@@ -9,10 +9,10 @@ int load_recipes(Recipe recipes[])
     int values_read;
     int entry_ok;
 
-    file = fopen("backend/data/recipes.txt", "r");
+    file = fopen("data/recipes.txt", "r");
 
     if (file == NULL) {
-        printf("Cannot open backend/data/recipes.txt. Run from the project root.\n");
+        printf("Cannot open data/recipes.txt. Run from the project root.\n");
         return 0;
     }
 
@@ -61,10 +61,10 @@ int load_ingredients(Recipe recipes[])
     int values_read;
     int entry_ok;
 
-    file = fopen("backend/data/ingredients.txt", "r");
+    file = fopen("data/ingredients.txt", "r");
 
     if (file == NULL) {
-        printf("cannot open backend/data/ingredients.txt\n");
+        printf("cannot open data/ingredients.txt\n");
         return 0;
     }
 
@@ -113,10 +113,10 @@ int load_instructions(Recipe recipes[])
     int values_read;
     int entry_ok;
 
-    file = fopen("backend/data/instructions.txt", "r");
+    file = fopen("data/instructions.txt", "r");
 
     if (file == NULL){
-        printf("cannot open backend/data/instructions.txt\n");
+        printf("cannot open data/instructions.txt\n");
         return 0 ;
     }
 

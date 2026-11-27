@@ -35,7 +35,7 @@ The program asks for:
 - how much of each item you already have at home
 - store number (1-3)
 
-Type 0 to quit. If a store is missing a price you cant choose it.
+Type 0 to quit. If you type something that is not a valid answer, it just asks again. If a store is missing a price you cant choose it.
 
 Then it prints the shopping list and the steps for the recipe.
 

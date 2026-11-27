@@ -6,28 +6,30 @@ int read_number(char prompt[], int minimum, int maximum)
     int number;
     char ending;
     int values_read;
+    int character;
+    int valid;
 
-    printf("%s\n", prompt);
-    values_read = scanf("%d%c", &number, &ending);
+    valid = 0;
 
-    if (values_read != 2) {
-        printf("Enter one whole number. Calculation stopped.\n");
-        return -1;
-    }
+    while (valid == 0) {
+        printf("%s\n", prompt);
+        values_read = scanf("%d%c", &number, &ending);
 
-    if (ending != '\n') {
-        printf("Press Enter directly after the number. Calculation stopped.\n");
-        return -1;
-    }
+        if (values_read == EOF || values_read == 1) {
+            return -1;
+        }
 
-    if (number < minimum) {
-        printf("The minimum is %d. Calculation stopped.\n", minimum);
-        return -1;
-    }
-
-    if (number > maximum) {
-        printf("The maximum is %d. Calculation stopped.\n", maximum);
-        return -1;
+        if (values_read == 0 || ending != '\n') {
+            character = getchar();
+            while (character != '\n' && character != EOF) {
+                character = getchar();
+            }
+            printf("Enter one whole number. Try again.\n");
+        } else if (number < minimum || number > maximum) {
+            printf("Choose a number from %d to %d. Try again.\n", minimum, maximum);
+        } else {
+            valid = 1;
+        }
     }
 
     return number;
@@ -99,12 +101,9 @@ int choose_recipe(Recipe recipes[])
     printf("0. for exit\n");
     choice = read_number("Recipe number:", 0, MAX_RECIPES);
 
-    if (choice <= 0){
-        return choice;
-    }
-    if (recipes[choice].loaded == 0){
-        printf("that recipe number is not in the data file\n");
-        return -1;
+    while (choice > 0 && recipes[choice].loaded == 0) {
+        printf("That recipe number is not in the data file. Try again.\n");
+        choice = read_number("Recipe number:", 0, MAX_RECIPES);
     }
     return choice;
 }
@@ -114,15 +113,10 @@ int choose_store(int totals[])
     int choice;
 
     choice = read_number("store number (0 = exit):", 0, MAX_STORES);
-    if (choice <= 0) {
-        return choice;
+    while (choice > 0 && totals[choice] == -1) {
+        printf("That store is missing a required price. Choose another store.\n");
+        choice = read_number("store number (0 = exit):", 0, MAX_STORES);
     }
-
-    if (totals[choice] == -1) {
-        printf("that store is missing a required price. program closed\n");
-        return -1;
-    }
-
     return choice;
 }
 

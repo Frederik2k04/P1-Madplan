@@ -59,4 +59,4 @@ if(EXISTS ${CMAKE_SOURCE_DIR}/backend/c/stock.c)
         SUFFIX ".cgi"
         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/cgi-bin)
     add_dependencies(web stock_cgi)
-endif()
+endif ()

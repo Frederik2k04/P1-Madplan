@@ -42,6 +42,12 @@ int needed[MAX_ITEMS + 1] = {0};
 int stock[MAX_ITEMS + 1] = {0};
 int selected_ids[MAX_ITEMS + 1] = {0};
 int budget_cent;
+int step = 1;
+int store_choice = 0;
+int position = 0;
+int used;
+int item_id;
+int amount;
 
 
 printf("Content-Type: text/html; charset=utf-8\n\n");
@@ -50,13 +56,28 @@ printf("Content-Type: text/html; charset=utf-8\n\n");
         printf("<p>No input was received.</p>\n");
         return 0;
             }
-found = sscanf(getenv("QUERY_STRING"),"recipe=%d&people=%d&budget=%d&spices=%d",
-                   &recipe_id, &people, &budget_kr, &include_spices);
+found = sscanf(getenv("QUERY_STRING"),"recipe=%d&people=%d&budget=%d&spices=%d%n",
+                   &recipe_id, &people, &budget_kr, &include_spices, &position);
     
     if (found != 4) {
         printf("<p>Please fill in every field.</p>\n");
         return 0;
             }
+
+    if (sscanf(getenv("QUERY_STRING") + position, "&step=%d%n", &step, &used) == 1) {
+        position = position + used;
+
+            }
+     if (sscanf(getenv("QUERY_STRING") + position, "&store=%d%n", &store_choice, &used) == 1) {
+        position = position + used;
+            }
+
+    while (sscanf(getenv("QUERY_STRING") + position, "&%d=%d%n", &item_id, &amount, &used) == 2) {
+        if (item_id >= 1 && item_id <= MAX_ITEMS && amount >= 0 && amount <= 100000) {
+            stock[item_id] = amount;
+        }
+        position = position + used;
+            } 
     if (load_stores(stores) == 0 || load_items(items) == 0 || load_prices(items) == 0) {
         printf("<p>The data files could not be loaded.</p>\n");
         return 0;
@@ -87,7 +108,10 @@ for (int item_id = 1; item_id <=MAX_ITEMS; item_id = item_id + 1) {
     needed[item_id] = (needed[item_id] * people + 1) / 2;
             }
 budget_cent = budget_kr * 100;
-load_stock(stock);
+
+if (step == 1) {
+    load_stock(stock);
+            }
 
 printf("<h2>%s - %d people</h2>\n", recipes[recipe_id].name, people);
 
